@@ -161,10 +161,12 @@ public class Yacht {
         return this.equals(comparedYacht);
     }
 
-    public boolean searchFreeYacht(LocalDate date) {
+    public boolean searchFreeYacht(LocalDate dateS, LocalDate dateE) {
 
         for (int i = 0; i < reservations.size(); i++) {
-            if (date.isAfter(reservations.get(i).getDateStart()) && date.isBefore(reservations.get(i).getDateEnd())) {
+            if (reservations.get(i).getDateStart().isBefore(dateS) && reservations.get(i).getDateEnd().isAfter(dateS)) {
+                return false;
+            }else if(reservations.get(i).getDateStart().isAfter(dateS) && reservations.get(i).getDateStart().isBefore(dateE)){
                 return false;
             }
         }

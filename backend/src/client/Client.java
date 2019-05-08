@@ -124,9 +124,10 @@ public class Client {
 
 
     //metoda dodająca rezerwacje
-    public void addReservation(Yacht yacht, LocalDate date) {
-        // TODO - implement Client.addReservation
-        throw new UnsupportedOperationException ();
+    public void addReservation(Reservation res) {
+        if (-1 == reservations.indexOf(res)) {
+            reservations.add(res);
+        }
     }
 
 }

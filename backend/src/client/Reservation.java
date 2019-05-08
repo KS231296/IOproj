@@ -6,19 +6,19 @@ public class Reservation {
 
 
     //pola
-    String client;
+    int clientID;
     private LocalDate dateStart;
      private LocalDate dateEnd;
     private int number;
-    String model;
+    int modelID;
 
     //gettery i settery
-    public String getClient() {
-        return client;
+    public int getClient() {
+        return clientID;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setClient(int client) {
+        this.clientID = client;
     }
 
     public LocalDate getDateStart() {
@@ -47,12 +47,12 @@ public class Reservation {
         this.number = number;
     }
 
-    public String getModel() {
-        return model;
+    public int getModel() {
+        return modelID;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setModel(int model) {
+        this.modelID = model;
     }
 
 
