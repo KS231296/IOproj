@@ -23,7 +23,7 @@ public class Factory {
         return client;
     }
 
-    public Reservation createReservation(String data[]) {
+    public Reservation createReservation(String data[], Yacht yacht, Client client) {
         Reservation reservation = null;
 
         switch (Integer.parseInt(data[0])) {
@@ -34,10 +34,10 @@ public class Factory {
             case 1:
                 reservation = new Reservation();
                 reservation.setNumber(Integer.valueOf(data[1]));
-                reservation.setClient(Integer.valueOf(data[2]));
-                reservation.setDateStart(LocalDate.parse(data[3]));
-                reservation.setDateEnd(LocalDate.parse(data[4]));
-                reservation.setModel(Integer.valueOf(data[5]));
+                reservation.setClient(client);
+                reservation.setDateStart(LocalDate.parse(data[2]));
+                reservation.setDateEnd(LocalDate.parse(data[3]));
+                reservation.setModel(yacht);
                 break;
         }
         return reservation;

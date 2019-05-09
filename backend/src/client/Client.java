@@ -1,7 +1,7 @@
 package client;
 
 import owner.Yacht;
-
+import factoryAndFacade.Factory;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,19 +124,33 @@ public class Client {
 
 
     //metoda dodająca rezerwacje
-    public void addReservation(Reservation res) {
-        if (-1 == reservations.indexOf(res)) {
-            reservations.add(res);
-        }
+     public void addReservation(String[] data, Yacht yacht, Client client)  {
+          Factory factory = new Factory();
+        Reservation reservation = factory.createReservation(data, yacht, client);
+        reservation.setClient(this);
+        reservations.add(reservation);
+       yacht.addReservation(reservation); 
+    }
+     
+     
+     
+     
+     
+    public void removeReservation(String[] data, Yacht yacht, Client client) { 
+        Factory factory = new Factory();
+        Reservation reservation = factory.createReservation(data, yacht, client);
+        reservation.setClient(this);
+        reservations.remove(reservation);
+        yacht.removeReservation(reservation); 
     }
     
-     public Reservation searchReservation(Reservation reservation) {
-        int idx = reservations.indexOf(reservation);       
-        if(idx != -1){
-            reservation = reservations.get(idx);
-            return reservation;
-        }         
-        return null;
-    }
-
+ 
+     
 }
+     
+     
+     
+     
+     
+
+
