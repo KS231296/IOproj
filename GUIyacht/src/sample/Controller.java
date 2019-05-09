@@ -13,6 +13,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import owner.Yacht;
@@ -45,18 +48,43 @@ public class Controller {
 
     @FXML
     private Button add;
+    
+     @FXML
+    private TextField nameBox;
+
+    @FXML
+    private TextField typeBox;
+
+    @FXML
+    private TextField lengthBox;
+
+    @FXML
+    private TextField pplBox;
+
+    @FXML
+    private TextField engBox;
+
+    @FXML
+    private TextField sailBox;
+
+    @FXML
+    private TextField idBox;
 
     private ObservableList<String> yachts = FXCollections.observableArrayList();
 
+    private Facade fac =new Facade();
+    
+    
+    
+    
     @FXML
     void addShow(ActionEvent event) {
-        Facade facade = new Facade();
         String yacht1[] = {"1","1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
         String yacht2[] = {"1","2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
 
          
 
-        yachts = FXCollections.observableArrayList(facade.addYacht(yacht1), facade.addYacht(yacht2));
+        yachts.addAll(fac.addYacht(yacht1), fac.addYacht(yacht2));
 
         listYachts.setItems(yachts);
 //        txtTesty.setText(listYachts.getItems().toString());
@@ -69,7 +97,8 @@ public class Controller {
 
     @FXML
     void login(ActionEvent event) {
-
+         System.out.println(txtLogin.getText() + txtPassword.getText());
+        if(txtLogin.getText().equals("owner") && txtPassword.getText().equals("owner"))
         newScene(event, "ownerView.fxml", 600, 300);
 
     }
@@ -80,7 +109,6 @@ public class Controller {
             Stage stage = new Stage();
 
             stage.setTitle("MAZUROINATOR");
-            stage.resizableProperty().setValue(Boolean.FALSE);
             stage.setScene(scene);
 
             stage.show();
@@ -92,6 +120,27 @@ public class Controller {
             logger.log(Level.SEVERE, "Failed to create new Window.", e);
         }
 
+    }
+    
+        @FXML
+    void showClients(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showReservations(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void addYacht(ActionEvent event) {
+        String[] data = {"1",idBox.getText(),nameBox.getText(),typeBox.getText(),lengthBox.getText(),pplBox.getText(),engBox.getText(),sailBox.getText()};
+        System.out.println(Arrays.toString(data));
+        yachts.add(fac.addYacht(data));
+        listYachts.setItems(yachts);
+
+        
+        
     }
 
 }
