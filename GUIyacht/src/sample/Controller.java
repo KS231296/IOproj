@@ -36,6 +36,12 @@ public class Controller {
 
     @FXML
     private Text txtTesty;
+    
+        @FXML
+    private Button btnClient;
+
+    @FXML
+    private Button btwRes;
 
     @FXML
     private Button add;
@@ -45,8 +51,8 @@ public class Controller {
     @FXML
     void addShow(ActionEvent event) {
         Facade facade = new Facade();
-        String yacht1[] = {"1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
-        String yacht2[] = {"2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
+        String yacht1[] = {"1","1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
+        String yacht2[] = {"1","2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
 
          
 

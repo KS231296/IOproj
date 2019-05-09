@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
@@ -12,12 +13,19 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="556.0">
                <children>
-                  <ListView fx:id="listYachts" layoutX="-120.0" layoutY="-135.0" prefHeight="601.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="listYachts" layoutX="-120.0" prefHeight="602.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button fx:id="add" layoutX="221.0" layoutY="73.0" mnemonicParsing="false" onAction="#addShow" text="Button" />
+      <Button fx:id="add" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#addShow" prefHeight="26.0" prefWidth="123.0" text="Show Yachts" />
       <Text fx:id="txtTesty" layoutX="84.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="18.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OWNER PANEL" wrappingWidth="130.13671875">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnClient" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Show Clients" />
+      <Button fx:id="btwRes" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Show Reservations" />
    </children>
 </AnchorPane>

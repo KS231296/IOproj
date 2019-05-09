@@ -1,6 +1,7 @@
 package client;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Reservation {
 
@@ -59,10 +60,24 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation searchReservation(Reservation reservation) {
-        // TODO - implement ModelOfYacht.compare
-        throw new UnsupportedOperationException ();
+   @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null) {
+            return false;
+        }
+        if (getClass() != object.getClass()) {
+            return false;
+        }
+        final Reservation other = (Reservation) object;
+        if (this.number != other.number) {
+            return false;
+        }
+       
+        return true;
     }
-
+    
 
 }

@@ -129,5 +129,14 @@ public class Client {
             reservations.add(res);
         }
     }
+    
+     public Reservation searchReservation(Reservation reservation) {
+        int idx = reservations.indexOf(reservation);       
+        if(idx != -1){
+            reservation = reservations.get(idx);
+            return reservation;
+        }         
+        return null;
+    }
 
 }
