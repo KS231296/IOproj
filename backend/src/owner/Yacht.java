@@ -101,15 +101,16 @@ public class Yacht {
         this.reservations = reservations;
     }
 
-    public void addReservation(Reservation add) {
-        if (-1 == reservations.indexOf(add)) {
-            reservations.add(add);
+    public void addReservation(Reservation reservation) {
+        reservation.setModel(this);
+        reservations.add(reservation);
         }
 
-    }
+    
 
-    public void removeReservation(Reservation remove) {
-        reservations.remove(remove);
+    public void removeReservation(Reservation reservation) {
+        reservation.setModel(this);
+        reservations.remove(reservation);
     }
 
 //metoda hash 
@@ -161,7 +162,9 @@ public class Yacht {
         return this.equals(comparedYacht);
     }
 
-    public boolean searchFreeYacht(LocalDate dateS, LocalDate dateE) {
+
+  
+     public boolean isFree(LocalDate dateS, LocalDate dateE) {
 
         for (int i = 0; i < reservations.size(); i++) {
             if (reservations.get(i).getDateStart().isBefore(dateS) && reservations.get(i).getDateEnd().isAfter(dateS)) {
@@ -171,6 +174,7 @@ public class Yacht {
             }
         }
         return true;
-    } //Nalezy przeanalizować i ewentualnie poprawić
+    }
+//Nalezy przeanalizować i ewentualnie poprawić
 
 }

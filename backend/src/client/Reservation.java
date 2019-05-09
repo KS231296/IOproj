@@ -1,25 +1,26 @@
 package client;
 
+
 import java.time.LocalDate;
-import java.util.Objects;
+import owner.Yacht;
 
 public class Reservation {
 
 
     //pola
-    int clientID;
+    Client client;
     private LocalDate dateStart;
      private LocalDate dateEnd;
     private int number;
-    int modelID;
+    Yacht model;
 
     //gettery i settery
-    public int getClient() {
-        return clientID;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient(int client) {
-        this.clientID = client;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public LocalDate getDateStart() {
@@ -48,36 +49,22 @@ public class Reservation {
         this.number = number;
     }
 
-    public int getModel() {
-        return modelID;
+    public Yacht getModel() {
+        return model;
     }
 
-    public void setModel(int model) {
-        this.modelID = model;
+    public void setModel(Yacht model) {
+        this.model = model;
     }
 
 
     public Reservation() {
     }
 
-   @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (object == null) {
-            return false;
-        }
-        if (getClass() != object.getClass()) {
-            return false;
-        }
-        final Reservation other = (Reservation) object;
-        if (this.number != other.number) {
-            return false;
-        }
-       
-        return true;
+    public Reservation searchReservation(Reservation reservation) {
+        // TODO - implement ModelOfYacht.compare
+        throw new UnsupportedOperationException ();
     }
-    
+
 
 }
