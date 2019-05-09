@@ -61,10 +61,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation searchReservation(Reservation reservation) {
-        // TODO - implement ModelOfYacht.compare
-        throw new UnsupportedOperationException ();
-    }
+  
 
 
 }
