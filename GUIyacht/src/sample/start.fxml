@@ -8,10 +8,10 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Text layoutX="53.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
-      <Text layoutX="32.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-      <TextField fx:id="txtLogin" layoutX="116.0" layoutY="38.0" />
-      <Button fx:id="btnLogin" layoutX="134.0" layoutY="111.0" mnemonicParsing="false" onAction="#login" text="OK" />
-      <PasswordField fx:id="txtPassword" layoutX="116.0" layoutY="67.0" />
+      <Text layoutX="32.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
+      <Text layoutX="32.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <TextField fx:id="txtLogin" layoutX="99.0" layoutY="25.0" />
+      <Button fx:id="btnLogin" layoutX="32.0" layoutY="98.0" mnemonicParsing="false" onAction="#login" text="OK" />
+      <PasswordField fx:id="txtPassword" layoutX="99.0" layoutY="62.0" />
    </children>
 </Pane>

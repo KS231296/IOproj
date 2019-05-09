@@ -59,7 +59,7 @@ public class Controller {
         yachts = FXCollections.observableArrayList(facade.addYacht(yacht1), facade.addYacht(yacht2));
 
         listYachts.setItems(yachts);
-        txtTesty.setText(listYachts.getItems().toString());
+//        txtTesty.setText(listYachts.getItems().toString());
 
         scroll.setVisible(true);
 
