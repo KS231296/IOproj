@@ -61,7 +61,11 @@ public class Reservation {
     public Reservation() {
     }
 
-  
+  public boolean isFree(LocalDate dateS,LocalDate dateE)
+  {
+      return this.dateStart.isAfter(dateE)|| this.dateEnd.isBefore(dateS);
+     
+  }
 
 
 }

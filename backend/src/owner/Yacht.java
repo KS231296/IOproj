@@ -152,14 +152,19 @@ public class Yacht {
         if (this.yachtID != other.yachtID) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        return true;
+        else{
+//        if (!Objects.equals(this.type, other.type)) {
+//            return false;
+//        }
+        return compare(other);}
+       // return true;
     }
 
     public boolean compare(Yacht comparedYacht) {
-        return this.equals(comparedYacht);
+        if (!this.equals(comparedYacht.type)) {
+            return false;
+        }
+        return true;
     }
 
 
@@ -167,13 +172,17 @@ public class Yacht {
      public boolean isFree(LocalDate dateS, LocalDate dateE) {
 
         for (int i = 0; i < reservations.size(); i++) {
-            if (reservations.get(i).getDateStart().isBefore(dateS) && reservations.get(i).getDateEnd().isAfter(dateS)) {
+            if(!reservations.get(i).isFree(dateS, dateE))
                 return false;
-            }else if(reservations.get(i).getDateStart().isAfter(dateS) && reservations.get(i).getDateStart().isBefore(dateE)){
-                return false;
-            }
         }
+//            if (reservations.get(i).getDateStart().isBefore(dateS) && reservations.get(i).getDateEnd().isAfter(dateS)) {
+//                return false;
+//            }else if(reservations.get(i).getDateStart().isAfter(dateS) && reservations.get(i).getDateStart().isBefore(dateE)){
+//                return false;
+//            }
+//        }
         return true;
+
     }
 //Nalezy przeanalizować i ewentualnie poprawić
 

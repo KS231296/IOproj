@@ -1,6 +1,6 @@
 package sample;
 
-import factoryAndFacade.Facade;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -72,7 +72,7 @@ public class Controller {
 
     private ObservableList<String> yachts = FXCollections.observableArrayList();
 
-    private Facade fac =new Facade();
+   // private Facade Main.getFac() =new Facade();
     
     
     
@@ -84,7 +84,7 @@ public class Controller {
 
          
 
-        yachts.addAll(fac.addYacht(yacht1), fac.addYacht(yacht2));
+        yachts.addAll(Main.getFac().addYacht(yacht1), Main.getFac().addYacht(yacht2));
 
         listYachts.setItems(yachts);
 //        txtTesty.setText(listYachts.getItems().toString());
@@ -136,7 +136,7 @@ public class Controller {
     void addYacht(ActionEvent event) {
         String[] data = {"1",idBox.getText(),nameBox.getText(),typeBox.getText(),lengthBox.getText(),pplBox.getText(),engBox.getText(),sailBox.getText()};
         System.out.println(Arrays.toString(data));
-        yachts.add(fac.addYacht(data));
+        yachts.add(Main.getFac().addYacht(data));
         listYachts.setItems(yachts);
 
         
