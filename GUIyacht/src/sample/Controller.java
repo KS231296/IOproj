@@ -8,17 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 
 public class Controller {
 
@@ -36,11 +31,7 @@ public class Controller {
         items.addAll(data);
 
         listItems.setItems(items);
-        if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
-            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
-
-        }
+       
         System.out.println(listItems.getItems());
     }
 

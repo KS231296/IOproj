@@ -7,15 +7,13 @@ package sample;
 
 import java.util.Arrays;
 import java.util.Optional;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -65,6 +63,12 @@ public class ControllerOwnerView extends Controller {
      @FXML
     void showClients(ActionEvent event) {
         showItems(Main.getFac().getClientsData(), event);
+        
+         if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
+            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
+            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
+
+        }
 
     }
 
@@ -72,7 +76,11 @@ public class ControllerOwnerView extends Controller {
     void showReservations(ActionEvent event) {
 
         showItems(Main.getFac().getReservationsData(), event);
+ if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
+            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
+            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
+        }
     }
 
     @FXML
@@ -108,6 +116,12 @@ public class ControllerOwnerView extends Controller {
             } else if (result.get().getText().equals("ALL")) {
 
                 showItems(Main.getFac().getYachtsData(), event);
+                
+                 if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
+            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
+            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
+
+        }
             }
 
         }
