@@ -5,6 +5,7 @@ import client.Reservation;
 import owner.Yacht;
 
 import java.time.LocalDate;
+import java.util.IllegalFormatCodePointException;
 
 public class Factory {
 
@@ -39,6 +40,8 @@ public class Factory {
                 reservation.setDateEnd(LocalDate.parse(data[3]));
                 reservation.setModel(yacht);
                 break;
+            default:
+                throw new IllegalFormatCodePointException(0);
         }
         return reservation;
     }

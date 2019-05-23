@@ -5,6 +5,14 @@ import java.time.LocalDate;
 import owner.Yacht;
 
 public class Reservation {
+    //Constructor fo JUnit tests
+    public Reservation(Client client, LocalDate dateStart, LocalDate dateEnd, int number, Yacht model) {
+        this.client = client;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.number = number;
+        this.model = model;
+    }
 
 
     //pola
