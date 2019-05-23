@@ -31,7 +31,7 @@ public class Controller {
     private PasswordField txtPassword;
 
     @FXML
-    private ListView<String> listItems;
+    private ListView<String> listItems = new ListView();
 
     @FXML
     private Text txtTesty;
@@ -68,35 +68,23 @@ public class Controller {
 
     private ObservableList<String> items = FXCollections.observableArrayList();
 
-
     @FXML
     void addShow(ActionEvent event) {
-        //    String yacht1[] = {"1", "1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
-        //  String yacht2[] = {"1", "2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
+
         List yach = Main.getFac().getYachts();
-       showItems(yach, event);
+        showItems(yach, event);
     }
-    
-    private void showItems(List yach, ActionEvent event ){
-        
-             String yacht1[] = {"1", "1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
-        String yacht2[] = {"1", "2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
 
-        items.addAll(Main.getFac().addYacht(yacht1), Main.getFac().addYacht(yacht2));
+    private void showItems(List yach, ActionEvent event) {
+   
 
-//        txtTesty.setText(listYachts.getItems().toString());
-        
-        
-//        items.clear();
-//        items.add(".");
-//          for(int i =0; i<yach.size(); i++){
-//                    items.add(yach.get(i).toString());
-//
-//        }
+        items.clear();
+        for (int i = 0; i < yach.size(); i++) {
+            items.add(yach.get(i).toString());
+
+        }
         listItems.setItems(items);
 
-        
-        
         ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
         ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
@@ -140,26 +128,23 @@ public class Controller {
 
     @FXML
     void showClients(ActionEvent event) {
- List yach = Main.getFac().getClients();
-           showItems(yach, event);
+        List yach = Main.getFac().getClients();
+        showItems(yach, event);
 
     }
 
     @FXML
     void showReservations(ActionEvent event) {
         List yach = Main.getFac().getReservations();
-      
-       showItems(yach, event);
+
+        showItems(yach, event);
 
     }
-    
-    
 
     @FXML
     void addYacht(ActionEvent event) {
-        
-        
-            try {
+
+        try {
             Integer.parseInt(idBox.getText());
             Double.parseDouble(lengthBox.getText());
             Integer.parseInt(pplBox.getText());
@@ -170,11 +155,12 @@ public class Controller {
             new Alert(Alert.AlertType.ERROR, "Wrong data").show();
             return;
         }
-
+System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
-       Main.getFac().addYacht(data);
-       
+        Main.getFac().addYacht(data);
+        System.out.println(Main.getFac().getYachts());
+
 
     }
 
