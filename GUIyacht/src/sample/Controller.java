@@ -78,7 +78,8 @@ public class Controller {
     }
     
     private void showItems(List yach, ActionEvent event ){
-        
+        items.clear();
+        items.add("");
           for(int i =0; i<yach.size(); i++){
                     items.add(yach.get(i).toString());
 
