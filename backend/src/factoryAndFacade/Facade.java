@@ -28,6 +28,14 @@ public class Facade {
     public List<Reservation> getReservations() {
         return reservations;
     }
+    
+    public String[] getReservationsData(){
+        String[] data = new String[reservations.size()];
+        for(int i=0;i<reservations.size();i++){
+            data[i] = reservations.get(i).toString();
+        }
+        return data;
+    }
 
     //gettery i settery
     public void setReservations(List<Reservation> reservations) {
@@ -37,7 +45,15 @@ public class Facade {
     public List<Client> getClients() {
         return clients;
     }
-
+    
+     public String[] getClientsData(){
+        String[] data = new String[clients.size()];
+        for(int i=0;i<clients.size();i++){
+            data[i] = clients.get(i).toString();
+        }
+        return data;
+    }
+    
     public void setClients(ArrayList<Client> clients) {
         this.clients = clients;
     }
@@ -45,7 +61,13 @@ public class Facade {
     public List<Yacht> getYachts() {
         return yachts;
     }
-
+ public String[] getYachtsData(){
+        String[] data = new String[yachts.size()];
+        for(int i=0;i<yachts.size();i++){
+            data[i] = yachts.get(i).toString();
+        }
+        return data;
+    }
     public void setYachts(ArrayList<Yacht> yachts) {
         this.yachts = yachts;
     }

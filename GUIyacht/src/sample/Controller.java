@@ -71,7 +71,7 @@ public class Controller {
 
     @FXML
     void addShow(ActionEvent event) {
-        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("All"), ButtonType.CANCEL).showAndWait();
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("ALL"), ButtonType.CANCEL).showAndWait();
 
         if (result.isPresent()) {
             if (result.get() == ButtonType.CANCEL) {
@@ -79,22 +79,18 @@ public class Controller {
             } else if (result.get().getText().equals("SEARCH")) {
                 System.out.println("search");
             } else if (result.get().getText().equals("ALL")) {
-                List yach = Main.getFac().getYachts();
 
-                showItems(yach, event);
+                showItems(Main.getFac().getYachtsData(), event);
             }
 
         }
 
     }
 
-    private void showItems(List yach, ActionEvent event) {
-
+    private void showItems(String[] data, ActionEvent event) {
         items.clear();
-        for (int i = 0; i < yach.size(); i++) {
-            items.add(yach.get(i).toString());
+        items.addAll(data);
 
-        }
         listItems.setItems(items);
         if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
             ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
@@ -142,16 +138,14 @@ public class Controller {
 
     @FXML
     void showClients(ActionEvent event) {
-        List yach = Main.getFac().getClients();
-        showItems(yach, event);
+        showItems(Main.getFac().getClientsData(), event);
 
     }
 
     @FXML
     void showReservations(ActionEvent event) {
-        List yach = Main.getFac().getReservations();
 
-        showItems(yach, event);
+        showItems(Main.getFac().getReservationsData(), event);
 
     }
 
