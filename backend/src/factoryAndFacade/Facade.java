@@ -1,6 +1,7 @@
 package factoryAndFacade;
 
 import client.Client;
+import client.Reservation;
 import owner.Yacht;
 
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ public class Facade {
     //pola
     List<Client> clients;
     List<Yacht> yachts;
+        List<Reservation> reservations;
+
 //dodac liste rezerwacji
 
     // konstruktor
@@ -20,9 +23,17 @@ public class Facade {
         this.clients = new ArrayList ();
         this.yachts = new ArrayList ();
     }
-
+    
+    
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
 
     //gettery i settery
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     public List<Client> getClients() {
         return clients;
     }
@@ -50,7 +61,8 @@ public class Facade {
                     Client helpclient = factory.createClient (data2), client;
                     client = searchClient (helpclient);
                     if (client != null) {
-                        client.addReservation (data1,yacht, client); ////// do poprawy z datami 
+                         ////// do poprawy z datami 
+                        reservations.add(client.addReservation (data1,yacht, client));
                         return "Zarezerwowano jacht";
                     }
                     return "Brak klienta";
