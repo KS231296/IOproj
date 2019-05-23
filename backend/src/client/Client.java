@@ -124,12 +124,14 @@ public class Client {
 
 
     //metoda dodająca rezerwacje
-     public void addReservation(String[] data, Yacht yacht, Client client)  {
+     public Reservation addReservation(String[] data, Yacht yacht, Client client)  {
           Factory factory = new Factory();
         Reservation reservation = factory.createReservation(data, yacht, client);
         reservation.setClient(this);
         reservations.add(reservation);
        yacht.addReservation(reservation); 
+       
+       return reservation;
     }
      
      
