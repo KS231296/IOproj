@@ -9,7 +9,11 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ListView fx:id="listYachts" layoutX="10.0" layoutY="320.0" prefHeight="320.0" prefWidth="580.0" />
+      <AnchorPane layoutX="10.0" layoutY="320.0">
+         <children>
+            <ListView fx:id="listYachts" prefHeight="320.0" prefWidth="580.0" />
+         </children>
+      </AnchorPane>
       <Button fx:id="add" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#addShow" prefHeight="26.0" prefWidth="123.0" text="Show Yachts" />
       <Text fx:id="txtTesty" layoutX="84.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="18.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OWNER PANEL" wrappingWidth="130.13671875">

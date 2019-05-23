@@ -31,7 +31,7 @@ public class Controller {
     private PasswordField txtPassword;
 
     @FXML
-    private ListView<String> listItems = new ListView();
+    private ListView<String> listItems;
 
     @FXML
     private Text txtTesty;
@@ -73,20 +73,23 @@ public class Controller {
 
         List yach = Main.getFac().getYachts();
         showItems(yach, event);
+
     }
 
     private void showItems(List yach, ActionEvent event) {
-   
 
+        listItems = new ListView();
         items.clear();
         for (int i = 0; i < yach.size(); i++) {
             items.add(yach.get(i).toString());
 
         }
         listItems.setItems(items);
+        if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
+            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
+            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
-        ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-        ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
+        }
 
     }
 
@@ -155,12 +158,11 @@ public class Controller {
             new Alert(Alert.AlertType.ERROR, "Wrong data").show();
             return;
         }
-System.out.println(Main.getFac().getYachts());
+        System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
         Main.getFac().addYacht(data);
         System.out.println(Main.getFac().getYachts());
-
 
     }
 
