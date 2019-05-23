@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="320.0">
          <children>
-            <ListView fx:id="listYachts" prefHeight="320.0" prefWidth="580.0" />
+            <ListView fx:id="listItems" prefHeight="320.0" prefWidth="580.0" />
          </children>
       </AnchorPane>
       <Button fx:id="add" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#addShow" prefHeight="26.0" prefWidth="123.0" text="Show Yachts" />

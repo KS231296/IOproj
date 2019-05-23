@@ -78,7 +78,6 @@ public class Controller {
 
     private void showItems(List yach, ActionEvent event) {
 
-        listItems = new ListView();
         items.clear();
         for (int i = 0; i < yach.size(); i++) {
             items.add(yach.get(i).toString());
@@ -90,7 +89,7 @@ public class Controller {
             ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
         }
-
+System.out.println(listItems.getItems());
     }
 
     @FXML
