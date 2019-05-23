@@ -76,9 +76,9 @@ public class Controller {
         if (result.isPresent()) {
             if (result.get() == ButtonType.CANCEL) {
                 return;
-            } else if (result.get() == new ButtonType("SEARCH")) {
+            } else if (result.get().getText().equals("SEARCH")) {
                 System.out.println("search");
-            } else if (result.get() == new ButtonType("ALL")) {
+            } else if (result.get().getText().equals("ALL")) {
                 List yach = Main.getFac().getYachts();
 
                 showItems(yach, event);
