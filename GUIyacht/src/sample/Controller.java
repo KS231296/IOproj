@@ -75,10 +75,10 @@ public class Controller {
 
     @FXML
     void addShow(ActionEvent event) {
-        String yacht1[] = {"1", "1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
-        String yacht2[] = {"1", "2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
+    //    String yacht1[] = {"1", "1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
+      //  String yacht2[] = {"1", "2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
 
-        yachts.addAll(Main.getFac().addYacht(yacht1), Main.getFac().addYacht(yacht2));
+  //      yachts.addAll(Main.getFac().addYacht(yacht1), Main.getFac().addYacht(yacht2));
 
         listYachts.setItems(yachts);
 //        txtTesty.setText(listYachts.getItems().toString());
@@ -136,6 +136,10 @@ public void enter(KeyEvent e){
 
     @FXML
     void addYacht(ActionEvent event) {
+        
+        
+        
+        
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
         yachts.add(Main.getFac().addYacht(data));
