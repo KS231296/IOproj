@@ -65,6 +65,13 @@ public class Reservation {
         this.model = model;
     }
 
+    
+    
+     public boolean isFree(LocalDate data1_, LocalDate data2_)
+   {
+      return  getDateStart().isAfter(data2_) || getDateEnd().isBefore(data1_); 
+   }
+    
 
     public Reservation() {
     }

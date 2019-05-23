@@ -14,7 +14,7 @@ public class Facade {
     //pola
     List<Client> clients;
     List<Yacht> yachts;
-        List<Reservation> reservations;
+    List<Reservation> reservations;
 
 //dodac liste rezerwacji
 
@@ -52,17 +52,18 @@ public class Facade {
 
 
     //metoda dodająca rezerwacje
-    public String addReservation(String[] data1, String[] data2, LocalDate date, LocalDate dataKoncowa) {
+    public String addReservation(String[] data1, String[] data2, String datesofReservation [] ) {
         Factory factory = new Factory ();
         boolean results;
         Yacht help = factory.createYacht (data1),yacht;
        
-               if ((yacht = searchFreeYacht(help, date, dataKoncowa)) != null) {
+               if ((yacht = searchFreeYacht(help, LocalDate.parse(datesofReservation[0]), LocalDate.parse(datesofReservation[1]))) != null) {
                     Client helpclient = factory.createClient (data2), client;
                     client = searchClient (helpclient);
                     if (client != null) {
-                         ////// do poprawy z datami 
-                        reservations.add(client.addReservation (data1,yacht, client));
+                       client.addReservation(datesofReservation, yacht);
+                         
+                        reservations.add(client.addReservation (data1,yacht));
                         return "Zarezerwowano jacht";
                     }
                     return "Brak klienta";

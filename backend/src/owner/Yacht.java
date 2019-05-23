@@ -163,18 +163,15 @@ public class Yacht {
     }
 
 
-  
-     public boolean isFree(LocalDate dateS, LocalDate dateE) {
-
-        for (int i = 0; i < reservations.size(); i++) {
-            if (reservations.get(i).getDateStart().isBefore(dateS) && reservations.get(i).getDateEnd().isAfter(dateS)) {
-                return false;
-            }else if(reservations.get(i).getDateStart().isAfter(dateS) && reservations.get(i).getDateStart().isBefore(dateE)){
+    public boolean isFree(LocalDate data1, LocalDate data2) {
+        for (Reservation res:this.reservations) {
+            if (!res.isFree(data1, data2)) {
                 return false;
             }
         }
-        return true;
+            return true;
     }
+
 //Nalezy przeanalizować i ewentualnie poprawić
 
 }

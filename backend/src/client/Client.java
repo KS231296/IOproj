@@ -124,9 +124,9 @@ public class Client {
 
 
     //metoda dodająca rezerwacje
-     public Reservation addReservation(String[] data, Yacht yacht, Client client)  {
+     public Reservation addReservation(String[] data, Yacht yacht)  {
           Factory factory = new Factory();
-        Reservation reservation = factory.createReservation(data, yacht, client);
+        Reservation reservation = factory.createReservation(data, yacht, Client.this);
         reservation.setClient(this);
         reservations.add(reservation);
        yacht.addReservation(reservation); 
@@ -138,9 +138,9 @@ public class Client {
      
      
      
-    public void removeReservation(String[] data, Yacht yacht, Client client) { 
+    public void removeReservation(String[] data, Yacht yacht) { 
         Factory factory = new Factory();
-        Reservation reservation = factory.createReservation(data, yacht, client);
+        Reservation reservation = factory.createReservation(data, yacht, Client.this);
         reservation.setClient(this);
         reservations.remove(reservation);
         yacht.removeReservation(reservation); 
