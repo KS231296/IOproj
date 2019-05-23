@@ -138,12 +138,22 @@ public void enter(KeyEvent e){
     void addYacht(ActionEvent event) {
         
         
-        
-        
+            try {
+            Integer.parseInt(idBox.getText());
+            Double.parseDouble(lengthBox.getText());
+            Integer.parseInt(pplBox.getText());
+            Double.parseDouble(engBox.getText());
+            Integer.parseInt(sailBox.getText());
+
+        } catch (IllegalArgumentException e) {
+            new Alert(Alert.AlertType.ERROR, "Wrong data").show();
+            return;
+        }
+
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
-        yachts.add(Main.getFac().addYacht(data));
-        listYachts.setItems(yachts);
+       Main.getFac().addYacht(data);
+       
 
     }
 
