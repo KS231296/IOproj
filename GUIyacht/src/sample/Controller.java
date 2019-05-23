@@ -78,14 +78,22 @@ public class Controller {
     }
     
     private void showItems(List yach, ActionEvent event ){
-        items.clear();
-        items.add("");
-          for(int i =0; i<yach.size(); i++){
-                    items.add(yach.get(i).toString());
+        
+             String yacht1[] = {"1", "1", "Speed Demon", "motor boat", "20", "3", "500", "0"};
+        String yacht2[] = {"1", "2", "Butterfly", "sailing vessel", "50", "10", "50", "3"};
 
-        }
-        listItems.setItems(items);
+        items.addAll(Main.getFac().addYacht(yacht1), Main.getFac().addYacht(yacht2));
+
 //        txtTesty.setText(listYachts.getItems().toString());
+        
+        
+//        items.clear();
+//        items.add(".");
+//          for(int i =0; i<yach.size(); i++){
+//                    items.add(yach.get(i).toString());
+//
+//        }
+        listItems.setItems(items);
 
         
         
