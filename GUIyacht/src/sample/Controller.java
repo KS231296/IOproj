@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.input.KeyCode;
@@ -70,9 +71,20 @@ public class Controller {
 
     @FXML
     void addShow(ActionEvent event) {
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("All"), ButtonType.CANCEL).showAndWait();
 
-        List yach = Main.getFac().getYachts();
-        showItems(yach, event);
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.CANCEL) {
+                return;
+            } else if (result.get() == new ButtonType("SEARCH")) {
+                System.out.println("search");
+            } else if (result.get() == new ButtonType("ALL")) {
+                List yach = Main.getFac().getYachts();
+
+                showItems(yach, event);
+            }
+
+        }
 
     }
 
@@ -89,7 +101,7 @@ public class Controller {
             ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
         }
-System.out.println(listItems.getItems());
+        System.out.println(listItems.getItems());
     }
 
     @FXML
