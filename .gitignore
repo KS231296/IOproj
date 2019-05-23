@@ -3,3 +3,6 @@
 /backend/build/
 /GUIyacht/build/
 /GUIyacht/dist/
+/GUIyacht/nbproject/private/
+backend/nbproject/private/private.properties
+*.properties
