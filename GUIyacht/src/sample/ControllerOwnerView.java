@@ -114,6 +114,7 @@ public class ControllerOwnerView extends Controller {
             } else if (result.get().getText().equals("SEARCH")) {
                 System.out.println("search");
             } else if (result.get().getText().equals("ALL")) {
+                System.out.println("all");
 
                 showItems(Main.getFac().getYachtsData(), event);
                 
