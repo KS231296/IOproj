@@ -112,9 +112,9 @@ public class ControllerOwnerView extends Controller {
             if (result.get() == ButtonType.CANCEL) {
                 return;
             } else if (result.get().getText().equals("SEARCH")) {
-                System.out.println("search");
+// Szukanie dodać
+
             } else if (result.get().getText().equals("ALL")) {
-                System.out.println("all");
 
                 showItems(Main.getFac().getYachtsData(), event);
                 
