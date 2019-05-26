@@ -5,8 +5,10 @@
  */
 package sample;
 
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -23,7 +26,10 @@ import javafx.scene.text.Text;
  */
 public class ControllerOwnerView extends Controller {
  
-
+    private String yachtProp;
+    private String clientProp;
+    private String reservationProp;
+    
     @FXML
     private Text txtTesty;
 
@@ -56,9 +62,41 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField idBox;
+    
+    
+    @FXML
+    private CheckBox yachtsRemoveCheck;
 
+    @FXML
+    private CheckBox yachtsModifCheck;
 
-  
+    @FXML
+    private CheckBox yachtAddCheck;
+
+    @FXML
+    private Button manageClientBtn;
+
+    @FXML
+    private CheckBox clientAddCheck;
+
+    @FXML
+    private CheckBox clientRemoveCheck;
+
+    @FXML
+    private CheckBox clientModifCheck;
+
+    @FXML
+    private TextField yachtModProp;
+
+    @FXML
+    private Text propYachtText;
+    
+     @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        yachtModProp.setVisible(false);
+        propYachtText.setVisible(false);
+         System.out.println("Init");
+    }
     
      @FXML
     void showClients(ActionEvent event) {
@@ -82,10 +120,40 @@ public class ControllerOwnerView extends Controller {
 
         }
     }
+    
+    @FXML
+    void onCheckAddYacht(ActionEvent event) {
+        yachtModProp.setVisible(false);
+        propYachtText.setVisible(false);
+        yachtsModifCheck.setSelected(false);
+        yachtsRemoveCheck.setSelected(false);
+        yachtProp = "add";
+        System.out.println("add");
+    }
+
+    @FXML
+    void onCheckModifYacht(ActionEvent event) {
+        yachtModProp.setVisible(true);
+        propYachtText.setVisible(true);
+        yachtsRemoveCheck.setSelected(false);
+        yachtAddCheck.setSelected(false);
+        yachtProp = "modif";
+        System.out.println("modi");
+    }
+
+    @FXML
+    void onCheckRemoveYacht(ActionEvent event) {
+        yachtModProp.setVisible(false);
+        propYachtText.setVisible(false);
+        yachtsModifCheck.setSelected(false);
+        yachtAddCheck.setSelected(false);
+        yachtProp = "remove";
+        System.out.println("remove");
+    }
 
     @FXML
     void addYacht(ActionEvent event) {
-
+       
         try {
             Integer.parseInt(idBox.getText());
             Double.parseDouble(lengthBox.getText());
@@ -100,7 +168,17 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
-        Main.getFac().addYacht(data);
+        switch(yachtProp){
+            case "add":                
+                Main.getFac().addYacht(data);
+                break;
+            case "modif":
+                Main.getFac().modifyYacht(Integer.parseInt(data[1]),yachtModProp.getText(),data[2]);
+                break;
+            case "remove":
+                Main.getFac().deleteYacht(Integer.parseInt(data[1]));
+                break;
+        }
         System.out.println(Main.getFac().getYachts());
 
     }
