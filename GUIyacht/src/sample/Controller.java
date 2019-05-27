@@ -1,4 +1,4 @@
- package sample;
+package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,28 +11,46 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Controller {
 
-   
-
     @FXML
     private ListView<String> listItems;
 
     private ObservableList<String> items = FXCollections.observableArrayList();
 
-   
-
     protected void showItems(String[] data, ActionEvent event) {
-        items.clear();
-        items.addAll(data);
 
-        listItems.setItems(items);
-       
-        System.out.println(listItems.getItems());
+        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("ALL"), ButtonType.CANCEL).showAndWait();
+
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.CANCEL) {
+                // return;
+            } else if (result.get().getText().equals("SEARCH")) {
+// Szukanie dodać
+
+            } else if (result.get().getText().equals("ALL")) {
+
+                items.clear();
+                items.addAll(data);
+
+                listItems.setItems(items);
+
+                System.out.println(listItems.getItems());
+
+                if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
+                    ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
+                    ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
+
+                }
+            }
+
+        }
+
     }
 
     protected void newScene(ActionEvent event, String fxmlName, int width, int height) {

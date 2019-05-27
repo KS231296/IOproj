@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +19,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
 /**
@@ -25,11 +30,11 @@ import javafx.scene.text.Text;
  * @author Kinu
  */
 public class ControllerOwnerView extends Controller {
- 
+
     private String yachtProp;
     private String clientProp;
     private String reservationProp;
-    
+
     @FXML
     private Text txtTesty;
 
@@ -62,98 +67,112 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField idBox;
-    
-    
-    @FXML
-    private CheckBox yachtsRemoveCheck;
 
     @FXML
-    private CheckBox yachtsModifCheck;
+    private RadioButton yachtsRemoveCheck;
 
     @FXML
-    private CheckBox yachtAddCheck;
+    private RadioButton yachtsModifCheck;
+
+    @FXML
+    private RadioButton yachtAddCheck;
 
     @FXML
     private Button manageClientBtn;
 
     @FXML
-    private CheckBox clientAddCheck;
+    private RadioButton clientAddCheck;
 
     @FXML
-    private CheckBox clientRemoveCheck;
+    private RadioButton clientRemoveCheck;
 
     @FXML
-    private CheckBox clientModifCheck;
+    private RadioButton clientModifCheck;
 
     @FXML
     private TextField yachtModProp;
 
     @FXML
     private Text propYachtText;
-    
-     @FXML
-    public void initialize(URL location, ResourceBundle resources) {
+
+    @FXML
+    private ToggleGroup clientsGroup;
+
+    @FXML
+    private ToggleGroup yachtsGroup;
+
+    @FXML
+    public void initialize() {
         yachtModProp.setVisible(false);
         propYachtText.setVisible(false);
-         System.out.println("Init");
-    }
-    
-     @FXML
-    void showClients(ActionEvent event) {
-        showItems(Main.getFac().getClientsData(), event);
-        
-         if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
-            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
 
-        }
+        yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
+            RadioButton chk = (RadioButton) newValue;
+            System.out.println(chk.getText().toLowerCase());
+            yachtProp = chk.getText().toLowerCase();
+            if (newValue == yachtsModifCheck) {
+                yachtModProp.setVisible(true);
+                propYachtText.setVisible(true);
+            } else {
+                yachtModProp.setVisible(false);
+                propYachtText.setVisible(false);
+            }
+        });
+
+        System.out.println("Init");
+    }
+
+    @FXML
+    void showYachts(ActionEvent event) {
+
+        showItems(Main.getFac().getYachtsData(), event);
+
+    }
+
+    @FXML
+    void showClients(ActionEvent event) {
+
+        showItems(Main.getFac().getClientsData(), event);
 
     }
 
     @FXML
     void showReservations(ActionEvent event) {
-
         showItems(Main.getFac().getReservationsData(), event);
- if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
-            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
-
-        }
-    }
-    
-    @FXML
-    void onCheckAddYacht(ActionEvent event) {
-        yachtModProp.setVisible(false);
-        propYachtText.setVisible(false);
-        yachtsModifCheck.setSelected(false);
-        yachtsRemoveCheck.setSelected(false);
-        yachtProp = "add";
-        System.out.println("add");
     }
 
-    @FXML
-    void onCheckModifYacht(ActionEvent event) {
-        yachtModProp.setVisible(true);
-        propYachtText.setVisible(true);
-        yachtsRemoveCheck.setSelected(false);
-        yachtAddCheck.setSelected(false);
-        yachtProp = "modif";
-        System.out.println("modi");
-    }
-
-    @FXML
-    void onCheckRemoveYacht(ActionEvent event) {
-        yachtModProp.setVisible(false);
-        propYachtText.setVisible(false);
-        yachtsModifCheck.setSelected(false);
-        yachtAddCheck.setSelected(false);
-        yachtProp = "remove";
-        System.out.println("remove");
-    }
-
+//    @FXML
+//    void onCheckAddYacht(ActionEvent event) {
+//        yachtModProp.setVisible(false);
+//        propYachtText.setVisible(false);
+//        yachtsModifCheck.setSelected(false);
+//        yachtsRemoveCheck.setSelected(false);
+//        yachtProp = "add";
+//        System.out.println("add");
+//    }
+//
+//    @FXML
+//    void onCheckModifYacht(ActionEvent event) {
+//        yachtModProp.setVisible(true);
+//        propYachtText.setVisible(true);
+//        yachtsRemoveCheck.setSelected(false);
+//        yachtAddCheck.setSelected(false);
+//        yachtProp = "modif";
+//        System.out.println("modi");
+//    }
+//
+//    @FXML
+//    void onCheckRemoveYacht(ActionEvent event) {
+//        yachtModProp.setVisible(false);
+//        propYachtText.setVisible(false);
+//        yachtsModifCheck.setSelected(false);
+//        yachtAddCheck.setSelected(false);
+//        yachtProp = "remove";
+//        System.out.println("remove");
+//    }
     @FXML
     void addYacht(ActionEvent event) {
-       
+
         try {
             Integer.parseInt(idBox.getText());
             Double.parseDouble(lengthBox.getText());
@@ -168,12 +187,12 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
-        switch(yachtProp){
-            case "add":                
+        switch (yachtProp) {
+            case "add":
                 Main.getFac().addYacht(data);
                 break;
             case "modif":
-                Main.getFac().modifyYacht(Integer.parseInt(data[1]),yachtModProp.getText(),data[2]);
+                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getText(), data[2]);
                 break;
             case "remove":
                 Main.getFac().deleteYacht(Integer.parseInt(data[1]));
@@ -182,31 +201,5 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getYachts());
 
     }
-  @FXML
-    void addShow(ActionEvent event) {
-        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("ALL"), ButtonType.CANCEL).showAndWait();
 
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.CANCEL) {
-                return;
-            } else if (result.get().getText().equals("SEARCH")) {
-// Szukanie dodać
-
-            } else if (result.get().getText().equals("ALL")) {
-
-                showItems(Main.getFac().getYachtsData(), event);
-                
-                 if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
-            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
-
-        }
-            }
-
-        }
-
-    }
-
-  
-    
 }
