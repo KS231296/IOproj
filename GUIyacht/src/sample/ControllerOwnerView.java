@@ -92,6 +92,12 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private ChoiceBox<String> yachtModProp;
+    
+     @FXML
+    private ChoiceBox<String> clientModProp;
+     
+      @FXML
+    private ChoiceBox<String> reservationModProp;
 
     @FXML
     private Text propYachtText;
@@ -99,6 +105,7 @@ public class ControllerOwnerView extends Controller {
     @FXML
     private ToggleGroup clientsGroup;
 
+      
     @FXML
     private ToggleGroup yachtsGroup;
 
@@ -130,6 +137,19 @@ public class ControllerOwnerView extends Controller {
 //            System.out.println(chk.getText().toLowerCase());
             yachtProp = chk.getText().toLowerCase();
             if (newValue == yachtsModifCheck) {
+                yachtModProp.setVisible(true);
+                propYachtText.setVisible(true);
+            } else {
+                yachtModProp.setVisible(false);
+                propYachtText.setVisible(false);
+            }
+        });
+        
+         clientsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
+            RadioButton chk = (RadioButton) newValue;
+//            System.out.println(chk.getText().toLowerCase());
+            yachtProp = chk.getText().toLowerCase();
+            if (newValue == clientModifCheck) {
                 yachtModProp.setVisible(true);
                 propYachtText.setVisible(true);
             } else {
@@ -210,14 +230,51 @@ public class ControllerOwnerView extends Controller {
             case "add":
                 Main.getFac().addYacht(data);
                 break;
-            case "modif":
-                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getValue(), data[2]);
+            case "modify":
+                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getValue().toLowerCase(), data[2]);
                 break;
             case "remove":
                 Main.getFac().deleteYacht(Integer.parseInt(data[1]));
                 break;
         }
         System.out.println(Main.getFac().getYachts());
+
+    }
+    
+        @FXML
+    void manageClient(ActionEvent event) {
+        
+          try {
+            Integer.parseInt(idBox.getText());
+            Double.parseDouble(lengthBox.getText());
+            Integer.parseInt(pplBox.getText());
+            Double.parseDouble(engBox.getText());
+            Integer.parseInt(sailBox.getText());
+
+        } catch (IllegalArgumentException e) {
+            new Alert(Alert.AlertType.ERROR, "Wrong data").show();
+            return;
+        }
+        System.out.println(Main.getFac().getClients());
+        String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
+        System.out.println(Arrays.toString(data));
+        switch (clientProp) {
+            case "add":
+                Main.getFac().addClient(data);
+                break;
+            case "modify":
+                Main.getFac().modifyClient(Integer.parseInt(data[1]), clientModProp.getValue().toLowerCase(), data[2]);
+                break;
+            case "remove":
+                Main.getFac().deleteClient(Integer.parseInt(data[1]));
+                break;
+        }
+        System.out.println(Main.getFac().getClients());
+
+    }
+
+    @FXML
+    void manageReservation(ActionEvent event) {
 
     }
 

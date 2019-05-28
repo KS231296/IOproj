@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
@@ -11,8 +13,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
 
 <AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerOwnerView">
     <children>
@@ -89,7 +89,7 @@
                                 <Text layoutX="115.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
                                 <Text layoutX="117.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" />
                                 <Text layoutX="122.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-                                <Button fx:id="manageClientBtn" layoutX="245.0" layoutY="247.0" mnemonicParsing="false" text="Save Data" />
+                                <Button fx:id="manageClientBtn" layoutX="245.0" layoutY="247.0" mnemonicParsing="false" onAction="#manageClient" text="Save Data" />
                                 <RadioButton fx:id="clientAddCheck" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" selected="true" text="Add">
                                     <toggleGroup>
                                         <ToggleGroup fx:id="clientsGroup" />
@@ -97,6 +97,8 @@
                                 </RadioButton>
                                 <RadioButton fx:id="clientRemoveCheck" layoutX="77.0" layoutY="251.0" mnemonicParsing="false" text="Remove" toggleGroup="$clientsGroup" />
                                 <RadioButton fx:id="clientModifCheck" layoutX="151.0" layoutY="251.0" mnemonicParsing="false" text="Modify" toggleGroup="$clientsGroup" />
+                        <ChoiceBox fx:id="clientModProp" layoutX="170.0" layoutY="182.0" prefWidth="150.0" />
+                        <Text layoutX="63.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change property:" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -121,7 +123,7 @@
                                     </toggleGroup>
                                 </RadioButton>
                                 <RadioButton layoutX="180.0" layoutY="239.0" mnemonicParsing="false" selected="true" text="Add" toggleGroup="$reservationsGroup" />
-                                <Button fx:id="manageReservationsBtn" layoutX="270.0" layoutY="244.0" mnemonicParsing="false" text="Save Data" />
+                                <Button fx:id="manageReservationsBtn" layoutX="270.0" layoutY="244.0" mnemonicParsing="false" onAction="#manageReservation" text="Save Data" />
                             </children>
                         </AnchorPane>
                     </content>
