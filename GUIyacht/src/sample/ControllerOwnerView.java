@@ -72,6 +72,19 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField idBox;
+    
+    @FXML
+    private TextField nameBoxClient;
+
+    @FXML
+    private TextField surnameBoxClient;
+
+    @FXML
+    private TextField phoneBox;
+
+    @FXML
+    private TextField idBoxClient;
+
 
     @FXML
     private RadioButton yachtsRemoveCheck;
