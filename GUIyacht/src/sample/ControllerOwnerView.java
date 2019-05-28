@@ -47,6 +47,10 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private Button add;
+    
+    
+    @FXML
+    private Text propClientText;
 
     @FXML
     private TextField nameBox;
@@ -147,14 +151,13 @@ public class ControllerOwnerView extends Controller {
         
          clientsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
-//            System.out.println(chk.getText().toLowerCase());
             yachtProp = chk.getText().toLowerCase();
             if (newValue == clientModifCheck) {
-                yachtModProp.setVisible(true);
-                propYachtText.setVisible(true);
+                clientModProp.setVisible(true);
+                propClientText.setVisible(true);
             } else {
-                yachtModProp.setVisible(false);
-                propYachtText.setVisible(false);
+                clientModProp.setVisible(false);
+                propClientText.setVisible(false);
             }
         });
 

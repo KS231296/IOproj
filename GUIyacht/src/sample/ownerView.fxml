@@ -98,7 +98,7 @@
                                 <RadioButton fx:id="clientRemoveCheck" layoutX="77.0" layoutY="251.0" mnemonicParsing="false" text="Remove" toggleGroup="$clientsGroup" />
                                 <RadioButton fx:id="clientModifCheck" layoutX="151.0" layoutY="251.0" mnemonicParsing="false" text="Modify" toggleGroup="$clientsGroup" />
                         <ChoiceBox fx:id="clientModProp" layoutX="170.0" layoutY="182.0" prefWidth="150.0" />
-                        <Text layoutX="63.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change property:" />
+                        <Text fx:id="propClientText" layoutX="63.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change property:" />
                             </children>
                         </AnchorPane>
                     </content>
