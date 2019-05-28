@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -90,7 +91,7 @@ public class ControllerOwnerView extends Controller {
     private RadioButton clientModifCheck;
 
     @FXML
-    private TextField yachtModProp;
+    private ChoiceBox<String> yachtModProp;
 
     @FXML
     private Text propYachtText;
@@ -102,13 +103,31 @@ public class ControllerOwnerView extends Controller {
     private ToggleGroup yachtsGroup;
 
     @FXML
+    private Button manageReservationsBtn;
+
+    @FXML
+    private TextField txtDateStart;
+
+    @FXML
+    private TextField txtDateEnd;
+
+    @FXML
+    private TextField txtModel;
+
+    @FXML
+    private TextField txtClient;
+
+    @FXML
+    private ToggleGroup reservationsGroup;
+
+    @FXML
     public void initialize() {
         yachtModProp.setVisible(false);
         propYachtText.setVisible(false);
 
         yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
-            System.out.println(chk.getText().toLowerCase());
+//            System.out.println(chk.getText().toLowerCase());
             yachtProp = chk.getText().toLowerCase();
             if (newValue == yachtsModifCheck) {
                 yachtModProp.setVisible(true);
@@ -192,7 +211,7 @@ public class ControllerOwnerView extends Controller {
                 Main.getFac().addYacht(data);
                 break;
             case "modif":
-                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getText(), data[2]);
+                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getValue(), data[2]);
                 break;
             case "remove":
                 Main.getFac().deleteYacht(Integer.parseInt(data[1]));
