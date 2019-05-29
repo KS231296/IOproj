@@ -232,6 +232,26 @@ public class Facade {
         String[] d = new String[ff.size()];
         return  ff.toArray(d);
     }
+    
+    
+      public String[] searchClients(String[] data) {
+        Factory factory = new Factory();
+        Client client = factory.createClient(data);
+
+//        String[] find = new String[yachts.size()];
+        ArrayList<String> ff = new ArrayList();
+        //   int j = 0;
+        for (int i = 0; i < clients.size(); i++) {
+            if (client.compare(clients.get(i))) {
+                ff.add(clients.get(i).toString());
+                System.out.println("add" + i);
+//                find[j] = yachts.get(i).toString();
+//                j++;
+            }
+        }
+        String[] d = new String[ff.size()];
+        return  ff.toArray(d);
+    }
 
     //metoda modyfikująca jacht
     public void modifyYacht(String modifiedParameter, String[] data) {

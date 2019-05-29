@@ -146,7 +146,31 @@ public class Client {
         yacht.removeReservation(reservation); 
     }
     
- 
+ public boolean compare(Client comparedClient) {
+        if (this.clientID != 0) {
+            if (this.clientID != comparedClient.clientID) {
+                return false;
+            }
+        }
+       
+        if (this.firstName != null ) {
+            if (!this.firstName.equals("") && !this.firstName.equals(comparedClient.firstName)) {
+                return false;
+            }
+        }
+        if (this.lastName != null ) {
+            if (!this.lastName.equals("") && !this.lastName.equals(comparedClient.lastName)) {
+                return false;
+            }
+        }
+        if (this.phone != null ) {
+            if (!this.phone.equals("") && !this.phone.equals(comparedClient.phone)) {
+                return false;
+            }
+        }
+       
+        return true;
+    }
      
 }
      

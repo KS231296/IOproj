@@ -13,9 +13,16 @@ public class Factory {
         Client client = null;
         
         switch (Integer.parseInt(data[0])) {
-            case 0:
+          case 0:
                 client = new Client();
-                client.setClientID(Integer.parseInt(data[1])); //zmeinic typ w klasie Client
+                
+                if(!data[1].equals("")){
+                client.setClientID(Integer.parseInt(data[1]));
+                }
+                client.setFirstName(data[2]);
+                client.setLastName(data[3]);
+                client.setPhone(data[4]);
+               
                 break;
             case 1:
                 client = new Client(Integer.parseInt(data[1]), data[2], data[3], data[4]);

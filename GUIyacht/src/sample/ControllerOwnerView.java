@@ -264,7 +264,6 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
-        boolean update = true;
         switch (yachtProp) {
             case "add":
                 Main.getFac().addYacht(data);
@@ -286,6 +285,16 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     void manageClient(ActionEvent event) {
+        
+         if ("search".equals(clientProp)) {
+        String[] data = {"0", idBoxClient.getText(), nameBoxClient.getText(), surnameBoxClient.getText(), phoneBox.getText()};
+
+            updateList(Main.getFac().searchClients(data));
+
+            return;
+
+        }
+
 
         try {
             Integer.parseInt(idBoxClient.getText());
