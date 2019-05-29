@@ -34,6 +34,7 @@ public class Yacht {
     }
 
     public Yacht() {
+
     }
 
     //gettery i settery
@@ -104,9 +105,7 @@ public class Yacht {
     public void addReservation(Reservation reservation) {
         reservation.setModel(this);
         reservations.add(reservation);
-        }
-
-    
+    }
 
     public void removeReservation(Reservation reservation) {
         reservation.setModel(this);
@@ -159,19 +158,52 @@ public class Yacht {
     }
 
     public boolean compare(Yacht comparedYacht) {
-        return this.equals(comparedYacht);
+        if (this.crewNumber != 0) {
+            if (this.crewNumber != comparedYacht.crewNumber) {
+                return false;
+            }
+        }
+        if (this.enginePower != 0) {
+            if (this.enginePower != comparedYacht.enginePower) {
+                return false;
+            }
+        }
+        if (this.length != 0) {
+            if (this.length != comparedYacht.length) {
+                return false;
+            }
+        }
+        if (this.type != null ) {
+            if (!this.type.equals("") && !this.type.equals(comparedYacht.type)) {
+                return false;
+            }
+        }
+        if (this.name != null ) {
+            if (!this.name.equals("") && !this.name.equals(comparedYacht.name)) {
+                return false;
+            }
+        }
+        if (this.sailsNumber != 0) {
+            if (this.sailsNumber != comparedYacht.sailsNumber) {
+                return false;
+            }
+        }
+        if (this.yachtID != 0) {
+            if (this.yachtID != comparedYacht.yachtID) {
+                return false;
+            }
+        }
+        return true;
     }
 
-
     public boolean isFree(LocalDate data1, LocalDate data2) {
-        for (Reservation res:this.reservations) {
+        for (Reservation res : this.reservations) {
             if (!res.isFree(data1, data2)) {
                 return false;
             }
         }
-            return true;
+        return true;
     }
 
 //Nalezy przeanalizować i ewentualnie poprawić
-
 }

@@ -9,6 +9,6 @@ package sample;
  *
  * @author Kinu
  */
-public class ControllerAddYacht extends Controller{
+public class SearchController extends Controller{
     
 }

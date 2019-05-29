@@ -47,8 +47,7 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private Button add;
-    
-    
+
     @FXML
     private Text propClientText;
 
@@ -72,7 +71,7 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField idBox;
-    
+
     @FXML
     private TextField nameBoxClient;
 
@@ -84,7 +83,6 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField idBoxClient;
-
 
     @FXML
     private RadioButton yachtsRemoveCheck;
@@ -109,12 +107,17 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private ChoiceBox<String> yachtModProp;
-    
-     @FXML
+
+    @FXML
     private ChoiceBox<String> clientModProp;
-     
-      @FXML
+
+    @FXML
     private ChoiceBox<String> reservationModProp;
+
+    @FXML
+    private RadioButton yachtsSearchCheck;
+    @FXML
+    private RadioButton clientSearchCheck;
 
     @FXML
     private Text propYachtText;
@@ -122,7 +125,6 @@ public class ControllerOwnerView extends Controller {
     @FXML
     private ToggleGroup clientsGroup;
 
-      
     @FXML
     private ToggleGroup yachtsGroup;
 
@@ -148,7 +150,11 @@ public class ControllerOwnerView extends Controller {
     public void initialize() {
         yachtModProp.setVisible(false);
         propYachtText.setVisible(false);
+        yachtProp = "add";
 
+        clientModProp.setVisible(false);
+        propClientText.setVisible(false);
+        clientProp = "add";
         yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
 //            System.out.println(chk.getText().toLowerCase());
@@ -161,10 +167,10 @@ public class ControllerOwnerView extends Controller {
                 propYachtText.setVisible(false);
             }
         });
-        
-         clientsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
+
+        clientsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
-            yachtProp = chk.getText().toLowerCase();
+            clientProp = chk.getText().toLowerCase();
             if (newValue == clientModifCheck) {
                 clientModProp.setVisible(true);
                 propClientText.setVisible(true);
@@ -180,14 +186,22 @@ public class ControllerOwnerView extends Controller {
     @FXML
     void showYachts(ActionEvent event) {
 
-        showItems(Main.getFac().getYachtsData(), event);
+        if (1 == showItems(Main.getFac().getYachtsData(), event)) {
+            yachtProp = "search";
+            addYacht(event);
+            RadioButton chk = (RadioButton) yachtsGroup.getSelectedToggle();
+            yachtProp = chk.getText().toLowerCase();
+
+        }
 
     }
 
     @FXML
     void showClients(ActionEvent event) {
 
-        showItems(Main.getFac().getClientsData(), event);
+        if (1 == showItems(Main.getFac().getClientsData(), event)) {
+            clientProp = "search";
+        }
 
     }
 
@@ -227,6 +241,14 @@ public class ControllerOwnerView extends Controller {
 //    }
     @FXML
     void addYacht(ActionEvent event) {
+        if ("search".equals(yachtProp)) {
+            String[] data = {"0", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
+
+            updateList(Main.getFac().searchYachts(data));
+
+            return;
+
+        }
 
         try {
             Integer.parseInt(idBox.getText());
@@ -242,55 +264,59 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
+        boolean update = true;
         switch (yachtProp) {
             case "add":
                 Main.getFac().addYacht(data);
                 break;
             case "modify":
-                Main.getFac().modifyYacht(Integer.parseInt(data[1]), yachtModProp.getValue().toLowerCase(), data[2]);
+                Main.getFac().modifyYacht(yachtModProp.getValue(), data);
                 break;
             case "remove":
                 Main.getFac().deleteYacht(Integer.parseInt(data[1]));
                 break;
+
         }
+
+        updateList(Main.getFac().getYachtsData());
+
         System.out.println(Main.getFac().getYachts());
 
     }
-    
-        @FXML
+
+    @FXML
     void manageClient(ActionEvent event) {
-        
-          try {
-            Integer.parseInt(idBox.getText());
-            Double.parseDouble(lengthBox.getText());
-            Integer.parseInt(pplBox.getText());
-            Double.parseDouble(engBox.getText());
-            Integer.parseInt(sailBox.getText());
+
+        try {
+            Integer.parseInt(idBoxClient.getText());
 
         } catch (IllegalArgumentException e) {
             new Alert(Alert.AlertType.ERROR, "Wrong data").show();
             return;
         }
         System.out.println(Main.getFac().getClients());
-        String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
+        String[] data = {"1", idBoxClient.getText(), nameBoxClient.getText(), surnameBoxClient.getText(), phoneBox.getText()};
         System.out.println(Arrays.toString(data));
         switch (clientProp) {
             case "add":
                 Main.getFac().addClient(data);
                 break;
             case "modify":
-                Main.getFac().modifyClient(Integer.parseInt(data[1]), clientModProp.getValue().toLowerCase(), data[2]);
+                Main.getFac().modifyClient(clientModProp.getValue(), data);
                 break;
             case "remove":
                 Main.getFac().deleteClient(Integer.parseInt(data[1]));
                 break;
         }
+        updateList(Main.getFac().getClientsData());
+
         System.out.println(Main.getFac().getClients());
 
     }
 
     @FXML
     void manageReservation(ActionEvent event) {
+        updateList(Main.getFac().getReservationsData());
 
     }
 

@@ -13,11 +13,11 @@ public class Client {
     private int clientID;
     private String firstName;
     private String lastName;
-    private int phone;
+    private String phone;
     private List<Reservation> reservations;
 
     //konstruktor
-    public Client(int clientID, String firstName, String lastName, int phone) {
+    public Client(int clientID, String firstName, String lastName, String phone) {
         this.clientID = clientID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,11 +53,11 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
