@@ -201,6 +201,9 @@ public class ControllerOwnerView extends Controller {
 
         if (1 == showItems(Main.getFac().getClientsData(), event)) {
             clientProp = "search";
+             manageClient(event);
+            RadioButton chk = (RadioButton) clientsGroup.getSelectedToggle();
+            clientProp = chk.getText().toLowerCase();
         }
 
     }
