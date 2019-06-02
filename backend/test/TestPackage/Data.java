@@ -20,9 +20,9 @@ public class Data {
     };
     
     public Yacht yachts[] = {
-        new Yacht(1,"Blue Whale","Whale",13.4,5,56.6,2),
-        new Yacht(2,"TARDIS","Police Box",12.3,8,96.6,3),
-        new Yacht(3,"Bovvered","Judoon",9.6,12,75.5,0)
+        new Yacht("1","Blue Whale","Whale",13.4,5,56.6,2),
+        new Yacht("2","TARDIS","Police Box",12.3,8,96.6,3),
+        new Yacht("3","Bovvered","Judoon",9.6,12,75.5,0)
     };
         
 }

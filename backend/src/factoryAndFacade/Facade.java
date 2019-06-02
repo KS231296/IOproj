@@ -1,9 +1,7 @@
 package factoryAndFacade;
 
 import client.Client;
-import client.Reservation;
 import owner.Yacht;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,30 +11,11 @@ public class Facade {
     //pola
     List<Client> clients;
     List<Yacht> yachts;
-    List<Reservation> reservations;
 
-//dodac liste rezerwacji
     // konstruktor
     public Facade() {
         this.clients = new ArrayList();
         this.yachts = new ArrayList();
-    }
-
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public String[] getReservationsData() {
-        String[] data = new String[reservations.size()];
-        for (int i = 0; i < reservations.size(); i++) {
-            data[i] = reservations.get(i).toString();
-        }
-        return data;
-    }
-
-    //gettery i settery
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
     }
 
     public List<Client> getClients() {
@@ -72,116 +51,79 @@ public class Facade {
     }
 
     //metoda dodająca rezerwacje
-    public String addReservation(String[] data1, String[] data2, String datesofReservation[]) {
+    public String addReservation(String[] dataOfClient, String[] datayacht, String datesofReservation[]) {
         Factory factory = new Factory();
-        boolean results;
-        Yacht help = factory.createYacht(data1), yacht;
-
-        if ((yacht = searchFreeYacht(help, LocalDate.parse(datesofReservation[0]), LocalDate.parse(datesofReservation[1]))) != null) {
-            Client helpclient = factory.createClient(data2), client;
-            client = searchClient(helpclient);
-            if (client != null) {
-                client.addReservation(datesofReservation, yacht);
-
-                reservations.add(client.addReservation(data1, yacht));
-                return "Zarezerwowano jacht";
-            }
+        Yacht yacht = factory.createYacht(datayacht);
+        yacht = insideYacht(yacht);
+        if (yacht == null) {
+            return "Brak jachtu";
+        }
+        Client client = factory.createClient(dataOfClient);
+        if (client == null) {
             return "Brak klienta";
         }
-        return "Brak wolnego jachtu";
-    }
-
-    public Yacht searchFreeYacht(Yacht help, LocalDate date1, LocalDate dataKoncowa) {
-        for (Yacht yacht : yachts) {
-            if (yacht.compare(help)) {
-                if (yacht.isFree(date1, dataKoncowa)) {
-                    return yacht;
-                }
-            }
+        if ((yacht.isFree(LocalDate.parse(datesofReservation[0]), LocalDate.parse(datesofReservation[1])))) {
+            client.addReservation(datesofReservation, yacht);
+            return "Zarezerwowano jacht";
         }
-        return null;
+        return "Brak wolnego jachtu";
+
     }
 
-    //metoda dodająca klienta DOPRACOWAC !!!
     public String addClient(String data[]) {
         Factory factory = new Factory();
         Client client = factory.createClient(data);
-        if (searchClient(client) == null) {
+        if (insideClient(client) == null) {
             clients.add(client);
             return client.toString();
         }
         return null;
     }
 
-    //metoda usuwająca klienta
-    public void deleteClient(int clientID) {
-
+    public void deleteClient(String clientID) {
         for (int i = 0; i < clients.size(); i++) {
-
             if (clients.get(i).getClientID() == clientID) {
                 clients.remove(i);
                 System.out.println("Klient usunięty z bazy");
             } else {
                 System.out.println("Klient o podanym ID nie istnieje");
             }
-
         }
-
-    }
-
-    //metoda wyszukująca klienta
-    public Client searchClient(Client client) {
-        int index = clients.indexOf(client);
-        if (index != -1) {
-            client = clients.get(index);
-            return client;
-        }
-        return null;
     }
 
     //metoda modyfikująca jacht
     public void modifyClient(String modifiedParameter, String[] newValue) {
-        int clientID = Integer.parseInt(newValue[1]);
-        for (int i = 0; i < clients.size(); i++) {
+        String[] dataForFinding = {newValue[0], newValue[1]};
+        Factory factory = new Factory();
+        Client client = insideClient(factory.createClient(dataForFinding));
+        if (modifiedParameter.equals("firstName") || modifiedParameter.equals("secondName") || modifiedParameter.equals("phone")) {
+            switch (modifiedParameter) {
+                case "firstName":
+                    client.setFirstName(newValue[2]);
+                    break;
 
-            if (clients.get(i).getClientID() == clientID) {
+                case "lastName":
+                    client.setLastName(newValue[3]);
+                    break;
 
-                if (modifiedParameter.equals("firstName") || modifiedParameter.equals("secondName") || modifiedParameter.equals("phone")) {
-                    switch (modifiedParameter) {
-                        case "firstName":
-                            clients.get(i).setFirstName(newValue[2]);
+                case "phone":
+                    client.setPhone(newValue[4]);
+                    break;
 
-                            break;
-                        case "lastName":
-                            clients.get(i).setLastName(newValue[3]);
-
-                            break;
-                        case "phone":
-                            clients.get(i).setPhone(newValue[4]);
-
-                            break;
-
-                    }
-
-                    System.out.println("Client " + clientID + " " + modifiedParameter + " changed");
-
-                } else {
-                    System.out.println("Podano zły parametr");
-                }
-
-            } else {
-                System.out.println("Client o podanym ID nie istnieje");
             }
 
-        }
+            System.out.println("Client " + newValue[1] + " " + modifiedParameter + " changed");
 
+        } else {
+            System.out.println("Podano zły parametr");
+        }
     }
 
     //metoda dodająca jacht DOPRACOWAC !!!
     public String addYacht(String data[]) {
         Factory factory = new Factory();
         Yacht yacht = factory.createYacht(data);
-        if (searchYacht(yacht) == null) {
+        if (insideYacht(yacht) == null) {
             yachts.add(yacht);
             return yacht.toString();
         }
@@ -189,11 +131,10 @@ public class Facade {
     }
 
     //metoda usuwająca jacht
-    public void deleteYacht(int yachtID) {
-
+    public void deleteYacht(String yachtID) {
         for (int i = 0; i < yachts.size(); i++) {
 
-            if (yachts.get(i).getYachtID() == yachtID) {
+            if (yachts.get(i).getYachtID().equals(yachtID)) {
                 yachts.remove(i);
                 System.out.println("Jacht usunięty z floty");
             } else {
@@ -204,61 +145,38 @@ public class Facade {
 
     }
 
-    //metoda wyszukująca jacht
-    public Yacht searchYacht(Yacht yacht) {
-        int index = yachts.indexOf(yacht);
-        if (index != -1) {
-            yacht = yachts.get(index);
-            return yacht;
-        }
-        return null;
-    }
-
     public String[] searchYachts(String[] data) {
         Factory factory = new Factory();
         Yacht yacht = factory.createYacht(data);
-
-//        String[] find = new String[yachts.size()];
         ArrayList<String> ff = new ArrayList();
-        //   int j = 0;
         for (int i = 0; i < yachts.size(); i++) {
-            if (yacht.compare(yachts.get(i))) {
+            if (yacht.equals(yachts.get(i))) {
                 ff.add(yachts.get(i).toString());
-                System.out.println("add" + i);
-//                find[j] = yachts.get(i).toString();
-//                j++;
             }
         }
         String[] d = new String[ff.size()];
-        return  ff.toArray(d);
+        return ff.toArray(d);
     }
-    
-    
-      public String[] searchClients(String[] data) {
+
+    public String[] searchClients(String[] data) {
         Factory factory = new Factory();
         Client client = factory.createClient(data);
-
-//        String[] find = new String[yachts.size()];
         ArrayList<String> ff = new ArrayList();
-        //   int j = 0;
         for (int i = 0; i < clients.size(); i++) {
-            if (client.compare(clients.get(i))) {
+            if (client.equals(clients.get(i))) {
                 ff.add(clients.get(i).toString());
                 System.out.println("add" + i);
-//                find[j] = yachts.get(i).toString();
-//                j++;
             }
         }
         String[] d = new String[ff.size()];
-        return  ff.toArray(d);
+        return ff.toArray(d);
     }
 
     //metoda modyfikująca jacht
     public void modifyYacht(String modifiedParameter, String[] data) {
-        int yachtID = Integer.parseInt(data[1]);
+        String yachtID = data[1];
         for (int i = 0; i < yachts.size(); i++) {
-
-            if (yachts.get(i).getYachtID() == yachtID) {
+            if (yachts.get(i).getYachtID().equals(yachtID)) {
                 boolean changed = true;
                 switch (modifiedParameter) {
                     case "name":
@@ -276,17 +194,52 @@ public class Facade {
                         changed = false;
                         System.out.println("Podano zły parametr");
                 }
-
                 if (changed) {
                     System.out.println("Yacht " + yachtID + " " + modifiedParameter + " changed");
                 }
-
             } else {
                 System.out.println("Jacht o podanym ID nie istnieje");
             }
-
         }
-
     }
 
+    private Client insideClient(Client client) {
+        int index = clients.indexOf(client);
+        Client clientHelp = null;
+        if (index != -1) {
+            clientHelp = clients.get(index);
+        }
+        return clientHelp;
+    }
+
+    private Yacht insideYacht(Yacht yacht) {
+        int index = yachts.indexOf(yacht);
+        Yacht yachtHelp = null;
+        if (index != -1) {
+            yachtHelp = yachts.get(index);
+        }
+        return yachtHelp;
+    }
+
+    public String searchYacht(String[] yachtData) {
+        Factory factory = new Factory();
+        int index = yachts.indexOf(factory.createYacht(yachtData));
+        Yacht yachtHelp;
+        if (index != -1) {
+            yachtHelp = yachts.get(index);
+            return yachtHelp.toString();
+        }
+        return "No such yacht";
+    }
+
+    public String searchClient(String[] clientData) {
+        Factory factory = new Factory();
+        int index = clients.indexOf(factory.createClient(clientData));
+        Client clientHelp;
+        if (index != -1) {
+            clientHelp = clients.get(index);
+            return clientHelp.toString();
+        }
+        return "No such Client";
+    }
 }

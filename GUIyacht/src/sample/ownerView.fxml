@@ -121,20 +121,22 @@
                                 <TextField fx:id="txtDateEnd" layoutX="130.0" layoutY="71.0" />
                                 <TextField fx:id="txtModel" layoutX="130.0" layoutY="103.0" />
                                 <TextField fx:id="txtClient" layoutX="130.0" layoutY="138.0" />
-                                <TextField layoutX="130.0" layoutY="172.0" />
+                                <TextField fx:id="modelResBox" layoutX="130.0" layoutY="172.0" />
                                 <Text layoutX="56.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Begin date:" />
                                 <Text layoutX="59.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End date:" />
                                 <Text layoutX="65.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model:" />
                                 <Text layoutX="62.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client id:" />
-                                <Text layoutX="84.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                <RadioButton layoutX="102.0" layoutY="239.0" mnemonicParsing="false" text="Cancel">
+                                <Text layoutX="52.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yacht Model" />
+                                <RadioButton fx:id="cancResCheck" layoutX="102.0" layoutY="239.0" mnemonicParsing="false" text="Cancel">
                                     <toggleGroup>
                                         <ToggleGroup fx:id="reservationsGroup" />
                                     </toggleGroup>
                                 </RadioButton>
-                                <RadioButton layoutX="173.0" layoutY="239.0" mnemonicParsing="false" selected="true" text="Add" toggleGroup="$reservationsGroup" />
+                                <RadioButton fx:id="addResCheck" layoutX="173.0" layoutY="239.0" mnemonicParsing="false" selected="true" text="Add" toggleGroup="$reservationsGroup" />
                                 <Button fx:id="manageReservationsBtn" layoutX="336.0" layoutY="244.0" mnemonicParsing="false" onAction="#manageReservation" text="Save Data" />
-                        <RadioButton layoutX="236.0" layoutY="239.0" mnemonicParsing="false" text="Search" />
+                        <RadioButton fx:id="searchResCheck" layoutX="236.0" layoutY="239.0" mnemonicParsing="false" text="Search" />
+                        <Text layoutX="11.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Number" />
+                        <TextField fx:id="resIdBox" layoutX="130.0" layoutY="208.0" />
                             </children>
                         </AnchorPane>
                     </content>

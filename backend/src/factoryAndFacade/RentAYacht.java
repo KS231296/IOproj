@@ -52,7 +52,7 @@ Facade fac = new Facade();
         yacht2.setEnginePower(20);
         yacht2.setType("dodo");
         yacht2.setName("huhu");
-        System.out.println ( yacht.compare(yacht2));
+        System.out.println ( yacht.equals(yacht2));
         
        
         System.out.println (yacht);

@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import owner.Yacht;
 
 public class Reservation {
-    //Constructor fo JUnit tests
     public Reservation(Client client, LocalDate dateStart, LocalDate dateEnd, int number, Yacht model) {
         this.client = client;
         this.dateStart = dateStart;
@@ -13,6 +12,9 @@ public class Reservation {
         this.number = number;
         this.model = model;
     }
+     public Reservation() {
+    }
+
 
 
     //pola
@@ -71,11 +73,34 @@ public class Reservation {
    {
       return  getDateStart().isAfter(data2_) || getDateEnd().isBefore(data1_); 
    }
-    
 
-    public Reservation() {
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.number;
+        return hash;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Reservation other = (Reservation) obj;
+        if (this.number != other.number) {
+            return false;
+        }
+        return true;
+    }
+    
+
+   
   
 
 

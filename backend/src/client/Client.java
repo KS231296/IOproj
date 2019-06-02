@@ -1,7 +1,7 @@
 package client;
 
-import owner.Yacht;
 import factoryAndFacade.Factory;
+import owner.Yacht;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +10,14 @@ import java.util.Objects;
 public class Client {
 
     //pola
-    private int clientID;
+    private String clientID;
     private String firstName;
     private String lastName;
     private String phone;
     private List<Reservation> reservations;
 
     //konstruktor
-    public Client(int clientID, String firstName, String lastName, String phone) {
+    public Client(String clientID, String firstName, String lastName, String phone) {
         this.clientID = clientID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,11 +29,11 @@ public class Client {
     }
 
     //gettery i settery
-    public int getClientID() {
+    public String getClientID() {
         return clientID;
     }
 
-    public void setClientID(int clientID) {
+    public void setClientID(String clientID) {
         this.clientID = clientID;
     }
 
@@ -72,22 +72,44 @@ public class Client {
     //metody
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (object == null) {
+        if (obj == null) {
             return false;
         }
-        if (getClass () != object.getClass ()) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        final Client other = (Client) object;
-        if (!Objects.equals (this.clientID, other.clientID)) {
+        final Client other = (Client) obj;
+        if (!Objects.equals(this.clientID, other.clientID)) {
             return false;
         }
         return true;
     }
+
+ public void   addReservation(String data[],Yacht yacht)
+ {
+     Factory factory=new Factory();
+     Reservation res=factory.createReservation(data, yacht, this);
+     if(!reservations.contains(res)){
+         reservations.add(res);
+     }
+ }
+ 
+ public void cancelReservation(String data[],Yacht yacht){
+     Factory factory = new Factory();
+     Reservation res = factory.createReservation(data,yacht,this);
+     int index = reservations.indexOf(res);
+     
+     
+     if(index != -1){
+         res = reservations.get(index);
+         reservations.remove(res);
+     }
+     
+ }
 
     //metoda hash
     @Override
@@ -111,67 +133,24 @@ public class Client {
                 '}';
     }
 
-//    @Override
-//    public String toString() {
-//        return "Client{" +
-//                "clientID=" + clientID +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", phone=" + phone +
-//                ", reservations=" + reservations +
-//                '}';
-//    }
-
-
-    //metoda dodająca rezerwacje
-     public Reservation addReservation(String[] data, Yacht yacht)  {
-          Factory factory = new Factory();
-        Reservation reservation = factory.createReservation(data, yacht, Client.this);
-        reservation.setClient(this);
-        reservations.add(reservation);
-       yacht.addReservation(reservation); 
-       
-       return reservation;
-    }
-     
-     
-     
-     
-     
-    public void removeReservation(String[] data, Yacht yacht) { 
-        Factory factory = new Factory();
-        Reservation reservation = factory.createReservation(data, yacht, Client.this);
-        reservation.setClient(this);
-        reservations.remove(reservation);
-        yacht.removeReservation(reservation); 
+    public Reservation insideReservation(Reservation reservation){
+        int index = reservations.indexOf(reservation);
+        Reservation resHelp = null;
+        if(index != -1){
+            resHelp = reservations.get(index);
+        }
+        return resHelp;
     }
     
- public boolean compare(Client comparedClient) {
-        if (this.clientID != 0) {
-            if (this.clientID != comparedClient.clientID) {
-                return false;
-            }
+    public boolean findReservation(String[] dataOfRes, Yacht yacht){
+        Factory factory = new Factory();
+        Reservation resHelp = factory.createReservation(dataOfRes, yacht, this);
+        int index = reservations.indexOf(resHelp);
+        if(index != -1){
+            return true;
         }
-       
-        if (this.firstName != null ) {
-            if (!this.firstName.equals("") && !this.firstName.equals(comparedClient.firstName)) {
-                return false;
-            }
-        }
-        if (this.lastName != null ) {
-            if (!this.lastName.equals("") && !this.lastName.equals(comparedClient.lastName)) {
-                return false;
-            }
-        }
-        if (this.phone != null ) {
-            if (!this.phone.equals("") && !this.phone.equals(comparedClient.phone)) {
-                return false;
-            }
-        }
-       
-        return true;
+        return false;
     }
-     
 }
      
      

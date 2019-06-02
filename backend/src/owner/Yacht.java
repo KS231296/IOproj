@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Yacht {
 
     //parametry jachtu
-    private int yachtID;
+    private String yachtID;
     private String name;
     private String type; // typ : jacht motorowy czy żaglowy
     private double length; //długość jachtu w stopach
@@ -20,9 +20,7 @@ public class Yacht {
 
     private List<Reservation> reservations;
 
-    //konstruktor
-    //    public Yacht(int yachtID, String name, String type, double length, int crewNumber, double enginePower, int sailsNumber) {
-    public Yacht(int yachtID, String name, String type, double length, int crewNumber, double enginePower, int sailsNumber) {
+    public Yacht(String yachtID, String name, String type, double length, int crewNumber, double enginePower, int sailsNumber) {
         this.yachtID = yachtID;
         this.name = name;
         this.type = type;
@@ -38,11 +36,11 @@ public class Yacht {
     }
 
     //gettery i settery
-    public int getYachtID() {
+    public String getYachtID() {
         return yachtID;
     }
 
-    public void setYachtID(int yachtID) {
+    public void setYachtID(String yachtID) {
         this.yachtID = yachtID;
     }
 
@@ -117,7 +115,6 @@ public class Yacht {
     public int hashCode() {
         int hash = 7;
         hash = 79 * hash + Objects.hashCode(this.type);
-        hash = 79 * hash + this.yachtID;
         return hash;
     }
 
@@ -138,6 +135,8 @@ public class Yacht {
     //metoda porównująca jachty
     @Override
     public boolean equals(Object object) {
+       
+        
         if (this == object) {
             return true;
         }
@@ -148,50 +147,11 @@ public class Yacht {
             return false;
         }
         final Yacht other = (Yacht) object;
-        if (this.yachtID != other.yachtID) {
+        if (!this.yachtID.equals(other.yachtID)) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {
             return false;
-        }
-        return true;
-    }
-
-    public boolean compare(Yacht comparedYacht) {
-        if (this.crewNumber != 0) {
-            if (this.crewNumber != comparedYacht.crewNumber) {
-                return false;
-            }
-        }
-        if (this.enginePower != 0) {
-            if (this.enginePower != comparedYacht.enginePower) {
-                return false;
-            }
-        }
-        if (this.length != 0) {
-            if (this.length != comparedYacht.length) {
-                return false;
-            }
-        }
-        if (this.type != null ) {
-            if (!this.type.equals("") && !this.type.equals(comparedYacht.type)) {
-                return false;
-            }
-        }
-        if (this.name != null ) {
-            if (!this.name.equals("") && !this.name.equals(comparedYacht.name)) {
-                return false;
-            }
-        }
-        if (this.sailsNumber != 0) {
-            if (this.sailsNumber != comparedYacht.sailsNumber) {
-                return false;
-            }
-        }
-        if (this.yachtID != 0) {
-            if (this.yachtID != comparedYacht.yachtID) {
-                return false;
-            }
         }
         return true;
     }
@@ -205,5 +165,4 @@ public class Yacht {
         return true;
     }
 
-//Nalezy przeanalizować i ewentualnie poprawić
 }
