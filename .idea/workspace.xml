@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="045ec982-dd45-4b62-a247-bd8170f39650" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/.idea/GUIyacht.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build/classes/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build/classes/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build/classes/sample/ownerView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/build/classes/sample/start.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/GUIyacht.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/GUIyacht.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/GUIyacht.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/lib/backend.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/dtjava.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/get_java.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/get_javafx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/javafx-chrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/javafx-loading-100x100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/javafx-loading-25x25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/upgrade_java.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/dist/web-files/upgrade_javafx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/configs/Run_as_WebStart.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/configs/Run_in_Browser.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/jfx-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/private/configs/Run_as_WebStart.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/private/configs/Run_in_Browser.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/ControllerAddYacht.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/ControllerLogin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/ControllerOwnerView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/ownerView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUIyacht/src/sample/start.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1IO_Interface/src/businesstier/EJBFacadeRemote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/build/jar/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/build/jar/META-INF/application-client.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/build/jar/client_tier/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/dist/Library1_ClientEE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/ant-deploy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/src/conf/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/src/conf/application-client.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_ClientEE/src/java/client_tier/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/ant-deploy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/src/conf/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/Library1_EE-ejb/src/java/businesstier/EJBFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/ant-deploy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library1_EE/src/conf/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/client/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/client/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/factoryAndFacade/Facade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/factoryAndFacade/Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/factoryAndFacade/RentAYacht.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/owner/Yacht.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dist/backend.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/client/Reservation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/factoryAndFacade/Facade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/factoryAndFacade/Factory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/factoryAndFacade/RentAYacht.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/owner/Yacht.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/TestPackage/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/TestPackage/FactoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/categories/Test_Control.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/IOproj$Main.ic" NAME="Main Coverage Results" MODIFIED="1558955875939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="214" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/GUIyacht/src/sample/start.fxml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IOproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IOproj" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558955950107" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx-sdk-11.0.1/lib" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15527344" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="IOproj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="045ec982-dd45-4b62-a247-bd8170f39650" name="Default Changelist" comment="" />
+      <created>1558952572375</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558952572375</updated>
+      <workItem from="1558952574441" duration="3647000" />
+      <workItem from="1558957783506" duration="547000" />
+      <workItem from="1558959527256" duration="180000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4374000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.283419" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32969153" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/GUIyacht/nbproject/configs/Run_as_WebStart.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUIyacht/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUIyacht/src/sample/start.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUIyacht/build/classes/sample/Main.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../javafx-sdk-11.0.1/lib/javafx.graphics.jar!/javafx/application/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javafx-swt1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>IOproj</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
