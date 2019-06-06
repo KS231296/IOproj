@@ -5,20 +5,17 @@
  */
 package sample;
 
-import java.net.URL;
+
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
+
 import javafx.beans.value.ObservableValue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -162,6 +159,9 @@ public class ControllerOwnerView extends Controller {
     private TextField modelResBox;
     
     
+    @FXML
+    private Button ClientPanelbtn;
+
   
 
     @FXML
@@ -175,6 +175,7 @@ public class ControllerOwnerView extends Controller {
         clientProp = "add";
         
         reservationProp = "add";
+        
         yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
             yachtProp = chk.getText().toLowerCase();
@@ -326,6 +327,14 @@ public class ControllerOwnerView extends Controller {
         phoneBox.clear();
         System.out.println(Main.getFac().getClients());
 
+    }
+    
+    
+    
+    
+@FXML
+    void clientPanel(ActionEvent event) {
+ newScene(event, "client.fxml", 600, 650, true);
     }
 }
 //    @FXML
