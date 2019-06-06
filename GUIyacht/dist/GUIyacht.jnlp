@@ -8,8 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GUIyacht.jar" size="11406" download="eager" />
-    <jar href="lib\backend.jar" size="24328" download="eager" />
+    <jar href="GUIyacht.jar" size="11190" download="eager" />
+    <jar href="lib\backend.jar" size="24444" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GUIyacht" >
     <param name="requiredFXVersion" value="8.0+"/>

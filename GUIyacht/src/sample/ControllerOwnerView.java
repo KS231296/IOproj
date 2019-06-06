@@ -175,7 +175,6 @@ public class ControllerOwnerView extends Controller {
         clientProp = "add";
         
         reservationProp = "add";
-        
         yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
             yachtProp = chk.getText().toLowerCase();
