@@ -31,6 +31,7 @@ public class ControllerLogin extends Controller{
         if (txtLogin.getText().equals("owner") && txtPassword.getText().equals("owner")) {
             newScene(event, "ownerView.fxml", 600, 650, true);
         }
+            
 
     }
 

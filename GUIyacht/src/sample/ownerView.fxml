@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerOwnerView">
+<AnchorPane prefHeight="696.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerOwnerView">
     <children>
         <Button fx:id="add" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" onAction="#showYachts" prefHeight="26.0" prefWidth="123.0" text="Show Yachts" />
         <AnchorPane layoutX="10.0" layoutY="332.0" prefHeight="309.0" prefWidth="580.0">
@@ -29,7 +29,7 @@
             </font>
         </Text>
         <Button fx:id="btnClient" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#showClients" prefHeight="26.0" prefWidth="123.0" text="Show Clients" />
-        <Button fx:id="btwRes" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" onAction="#showReservations" prefHeight="26.0" prefWidth="123.0" text="Show Reservations" />
+        <!--<Button fx:id="btwRes" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" onAction="#showReservations" prefHeight="26.0" prefWidth="123.0" text="Show Reservations" />-->
         <TabPane layoutX="155.0" prefHeight="342.0" prefWidth="431.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Manage Yachts">
@@ -133,7 +133,7 @@
                                     </toggleGroup>
                                 </RadioButton>
                                 <RadioButton fx:id="addResCheck" layoutX="173.0" layoutY="239.0" mnemonicParsing="false" selected="true" text="Add" toggleGroup="$reservationsGroup" />
-                                <Button fx:id="manageReservationsBtn" layoutX="336.0" layoutY="244.0" mnemonicParsing="false" onAction="#manageReservation" text="Save Data" />
+<!--                                <Button fx:id="manageReservationsBtn" layoutX="336.0" layoutY="244.0" mnemonicParsing="false" onAction="#manageReservation" text="Save Data" />-->
                         <RadioButton fx:id="searchResCheck" layoutX="236.0" layoutY="239.0" mnemonicParsing="false" text="Search" />
                         <Text layoutX="11.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation Number" />
                         <TextField fx:id="resIdBox" layoutX="130.0" layoutY="208.0" />
@@ -143,5 +143,6 @@
                 </Tab>
             </tabs>
         </TabPane>
+      <Button fx:id="ClientPanelbtn" layoutX="494.0" layoutY="662.0" mnemonicParsing="false" onAction="#clientPanel" prefHeight="26.0" prefWidth="123.0" text="Client Panel" />
     </children>
 </AnchorPane>

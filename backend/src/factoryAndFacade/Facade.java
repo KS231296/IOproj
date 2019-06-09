@@ -1,6 +1,7 @@
 package factoryAndFacade;
 
 import client.Client;
+import client.Reservation;
 import owner.Yacht;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -42,6 +43,20 @@ public class Facade {
         String[] data = new String[yachts.size()];
         for (int i = 0; i < yachts.size(); i++) {
             data[i] = yachts.get(i).toString();
+        }
+        return data;
+    }
+    
+    public String[] getReservationsData(){
+        List<Reservation> res = new ArrayList<>();
+        for(int i = 0; i < clients.size(); i++){
+            if(!clients.get(i).getReservations().isEmpty()){
+                res.addAll(clients.get(i).getReservations());
+            }
+        }
+        String[] data = new String[res.size()];
+        for(int i = 0; i < res.size();i++){
+            data[i] = res.get(i).toString();
         }
         return data;
     }

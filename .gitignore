@@ -6,3 +6,8 @@
 /GUIyacht/nbproject/private/
 backend/nbproject/private/private.properties
 *.properties
+GUIyacht/nbproject/private/private.xml
+GUIyacht/dist/lib/backend.jar
+*.class
+*.xml
+*.jar
