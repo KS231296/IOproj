@@ -1,10 +1,44 @@
 package client;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import owner.Yacht;
 
-public class Reservation {
+@Entity
+public class Reservation implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    @OneToMany(mappedBy = "reservation",cascade = ALL)
+    List<Reservation> reservations;
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+     public Reservation() {
+         reservations = new ArrayList<>();
+    }
+    
     public Reservation(Client client, LocalDate dateStart, LocalDate dateEnd, int number, Yacht model) {
         this.client = client;
         this.dateStart = dateStart;
@@ -12,8 +46,7 @@ public class Reservation {
         this.number = number;
         this.model = model;
     }
-     public Reservation() {
-    }
+    
 
 
 

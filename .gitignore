@@ -11,3 +11,12 @@ GUIyacht/dist/lib/backend.jar
 *.class
 *.xml
 *.jar
+/YachtRentEE/nbproject/private/
+/backend/nbdist/
+/YachtRentEE/build/
+/YachtRentEE/dist/
+/YachtRentEnterprise/nbproject/private/
+/YachtRentEnterprise/build/
+/YachtRentEnterprise/dist/
+/YachtRentDB/nbproject/private/
+/YachtRentDB-ejb/nbproject/private/
