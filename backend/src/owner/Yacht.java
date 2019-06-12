@@ -1,15 +1,47 @@
 package owner;
 
 import client.Reservation;
+import java.io.Serializable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-public class Yacht {
-
+@Entity
+public class Yacht implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     //parametry jachtu
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    @OneToMany(mappedBy = "yacht", cascade = ALL)
+    List<Yacht> yachts;
+    public List<Yacht> getYachts() {
+        return yachts;
+    }
+    public void setYachts(List<Yacht> yachts) {
+        this.yachts = yachts;
+    }
+    public Yacht(){
+        yachts = new ArrayList<>();
+   }
+
+    
     private String yachtID;
     private String name;
     private String type; // typ : jacht motorowy czy żaglowy
@@ -31,9 +63,8 @@ public class Yacht {
         this.reservations = new ArrayList<>();
     }
 
-    public Yacht() {
 
-    }
+    
 
     //gettery i settery
     public String getYachtID() {

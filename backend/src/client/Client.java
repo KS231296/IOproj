@@ -1,14 +1,23 @@
 package client;
 
 import factoryAndFacade.Factory;
+import java.io.Serializable;
 import owner.Yacht;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
+import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-public class Client {
-
+@Entity
+public class Client implements Serializable {
+    private static final long serialVersionUID = 1L;
     //pola
     private String clientID;
     private String firstName;
@@ -16,6 +25,28 @@ public class Client {
     private String phone;
     private List<Reservation> reservations;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    @OneToMany(mappedBy = "client",cascade=ALL)
+    List<Client> clients;
+    public List<Client> getClients() {
+        return clients;
+    }
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+    public Client() {
+        clients = new ArrayList<>();
+    }  
+    
     //konstruktor
     public Client(String clientID, String firstName, String lastName, String phone) {
         this.clientID = clientID;
@@ -23,9 +54,6 @@ public class Client {
         this.lastName = lastName;
         this.phone = phone;
         this.reservations = new ArrayList<> ();
-    }
-
-    public Client() {
     }
 
     //gettery i settery
