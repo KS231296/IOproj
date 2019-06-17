@@ -40,13 +40,13 @@ public class RentAYacht {
        
 Facade fac = new Facade();
   System.out.println (fac.getYachts ().toString ());
-//       String yacht1[] = {"0","0", "0", "motor boat", "0", "3", "500", "0"};
-//fac.addYacht(yacht1);
+       String yacht1[] = {"0","0", "0", "motor boat", "0", "3", "500", "0"};
+fac.addYacht(yacht1);
   System.out.println (fac.getYachts ().toString ());
         Yacht yacht = new Yacht();
         yacht.setEnginePower(20);
         yacht.setType("dodo");
-      //  yacht.setName("t");
+        yacht.setName("t");
         
         Yacht yacht2 = new Yacht();
         yacht2.setEnginePower(20);
@@ -57,6 +57,18 @@ Facade fac = new Facade();
        
         System.out.println (yacht);
         System.out.println ("data:\n ID: "+ yacht.getYachtID()+ ", name: "+ yacht.getName()+", sails: "+yacht.getSailsNumber());
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

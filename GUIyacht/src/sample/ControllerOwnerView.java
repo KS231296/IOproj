@@ -5,7 +5,6 @@
  */
 package sample;
 
-
 import java.util.Arrays;
 
 import javafx.beans.value.ObservableValue;
@@ -139,8 +138,8 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private TextField txtClient;
-    
-     @FXML
+
+    @FXML
     private RadioButton cancResCheck;
 
     @FXML
@@ -148,21 +147,18 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     private RadioButton addResCheck;
-    
+
     @FXML
     private RadioButton searchResCheck;
-    
+
     @FXML
     private TextField resIdBox;
 
     @FXML
     private TextField modelResBox;
-    
-    
+
     @FXML
     private Button ClientPanelbtn;
-
-  
 
     @FXML
     public void initialize() {
@@ -173,9 +169,9 @@ public class ControllerOwnerView extends Controller {
         clientModProp.setVisible(false);
         propClientText.setVisible(false);
         clientProp = "add";
-        
+
         reservationProp = "add";
-        
+
         yachtsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
             yachtProp = chk.getText().toLowerCase();
@@ -199,7 +195,7 @@ public class ControllerOwnerView extends Controller {
                 propClientText.setVisible(false);
             }
         });
-        
+
         reservationsGroup.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
             RadioButton chk = (RadioButton) newValue;
             reservationProp = chk.getText().toLowerCase();
@@ -210,65 +206,99 @@ public class ControllerOwnerView extends Controller {
 
     @FXML
     void showYachts(ActionEvent event) {
-
-        if (1 == showItems(Main.getFac().getYachtsData(), event)) {
-            yachtProp = "search";
-            addYacht(event);
-            RadioButton chk = (RadioButton) yachtsGroup.getSelectedToggle();
-            yachtProp = chk.getText().toLowerCase();
-
-        }
+        showItems(Main.getFac().getYachtsData(), event);
 
     }
 
     @FXML
     void showClients(ActionEvent event) {
 
-        if (1 == showItems(Main.getFac().getClientsData(), event)) {
-            clientProp = "search";
-             manageClient(event);
-            RadioButton chk = (RadioButton) clientsGroup.getSelectedToggle();
-            clientProp = chk.getText().toLowerCase();
-        }
+        showItems(Main.getFac().getClientsData(), event);
 
     }
 
-//    @FXML
-//    void showReservations(ActionEvent event) {       
-//        showItems(Main.getFac().getReservationsData(), event);
-//    }
+    @FXML
+    void showReservations(ActionEvent event) {
+        showItems(Main.getFac().getReservationsData(), event);
+    }
 
     @FXML
     void addYacht(ActionEvent event) {
-        if ("search".equals(yachtProp)) {
-            String[] data = {"0", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
+        System.out.println("yactProp");
+       
 
-            updateList(Main.getFac().searchYachts(data));
-
-            return;
-
-        }
-
-        try {
-            Integer.parseInt(idBox.getText());
-            Double.parseDouble(lengthBox.getText());
-            Integer.parseInt(pplBox.getText());
-            Double.parseDouble(engBox.getText());
-            Integer.parseInt(sailBox.getText());
-
-        } catch (IllegalArgumentException e) {
-            new Alert(Alert.AlertType.ERROR, "Wrong data").show();
-            return;
-        }
         System.out.println(Main.getFac().getYachts());
         String[] data = {"1", idBox.getText(), nameBox.getText(), typeBox.getText(), lengthBox.getText(), pplBox.getText(), engBox.getText(), sailBox.getText()};
         System.out.println(Arrays.toString(data));
         switch (yachtProp) {
+            case "search":
+            data[0] = "0";
+            System.out.println("data: " + Arrays.toString(data));
+            updateList(Main.getFac().searchYachts(data));
+
+break;
+        
+            
             case "add":
-                Main.getFac().addYacht(data);
+                try {
+                    Double.parseDouble(data[4]); // length
+                    Integer.parseInt(data[5]); // ppl
+                    Double.parseDouble(data[6]); //eng
+                    Integer.parseInt(data[7]); // sail
+
+                } catch (IllegalArgumentException e) {
+                    new Alert(Alert.AlertType.ERROR, "Wrong data").show();
+                    return;
+                }
+
+                if (Main.getFac().addYacht(data) == null) {
+                    new Alert(Alert.AlertType.ERROR, "Yacht not added. Check ID").show();
+                    return;
+                }
+
                 break;
             case "modify":
-                Main.getFac().modifyYacht(yachtModProp.getValue(), data);
+                String mod = yachtModProp.getValue();
+                String[] dataMod = new String[2];
+                Boolean changed = false;
+                switch (mod) {
+                    case "name":
+                        dataMod[0] = data[1];
+                        dataMod[1] = data[2];
+
+                        break;
+                    case "enginePower":
+                        try {
+
+                            Double.parseDouble(data[6]); //eng
+
+                        } catch (IllegalArgumentException e) {
+                            new Alert(Alert.AlertType.ERROR, "engine not a number").show();
+                            return;
+                        }
+                        dataMod[0] = data[1];
+                        dataMod[1] = data[6];
+                        break;
+                    case "sailsNumber":
+                        try {
+
+                            Integer.parseInt(data[7]); // sail
+
+                        } catch (IllegalArgumentException e) {
+                            new Alert(Alert.AlertType.ERROR, "Sails not an integer").show();
+                            return;
+                        }
+
+                        dataMod[0] = data[1];
+                        dataMod[1] = data[7];
+                        break;
+
+                }
+                if (!Main.getFac().modifyYacht(mod, dataMod)) {
+                    new Alert(Alert.AlertType.ERROR, "Modyfication failed").show();
+                    return;
+                }
+
                 break;
             case "remove":
                 Main.getFac().deleteYacht(data[1]);
@@ -284,20 +314,20 @@ public class ControllerOwnerView extends Controller {
         pplBox.clear();
         engBox.clear();
         sailBox.clear();
-        
+
         System.out.println(Main.getFac().getYachts());
 
     }
 
     @FXML
     void manageClient(ActionEvent event) {
-        
-         if ("search".equals(clientProp)) {
+
+        if ("search".equals(clientProp)) {
             String[] data = {"0", idBoxClient.getText(), nameBoxClient.getText(), surnameBoxClient.getText(), phoneBox.getText()};
             updateList(Main.getFac().searchClients(data));
             return;
         }
-         
+
         try {
             Integer.parseInt(idBoxClient.getText());
 
@@ -305,7 +335,7 @@ public class ControllerOwnerView extends Controller {
             new Alert(Alert.AlertType.ERROR, "Wrong data").show();
             return;
         }
-        
+
         System.out.println(Main.getFac().getClients());
         String[] data = {"1", idBoxClient.getText(), nameBoxClient.getText(), surnameBoxClient.getText(), phoneBox.getText()};
         System.out.println(Arrays.toString(data));
@@ -328,13 +358,10 @@ public class ControllerOwnerView extends Controller {
         System.out.println(Main.getFac().getClients());
 
     }
-    
-    
-    
-    
-@FXML
+
+    @FXML
     void clientPanel(ActionEvent event) {
- newScene(event, "client.fxml", 600, 650, true);
+        newScene(event, "client.fxml", 600, 650, true);
     }
 }
 //    @FXML
