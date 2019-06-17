@@ -53,14 +53,34 @@ public class Factory {
         switch (Integer.parseInt(data[0])) {
 
             case 0:
+
                 yacht = new Yacht();
+                for(int i=4;i<data.length;i++){
+                    if(data[i].equals("")){
+                        data[i] = "0";
+                    }
+                }
+
+                            
                 yacht.setYachtID(data[1]);
-                yacht.setType(data[2]);
-                break;
+                              
+                yacht.setName(data[2]);
+                               
+                yacht.setType(data[3]);
+                yacht.setLength(Double.valueOf(data[4]));
+                yacht.setCrewNumber(Integer.parseInt(data[5]));
+                yacht.setEnginePower(Double.valueOf(data[6]));
+                yacht.setSailsNumber(Integer.parseInt(data[7]));
+                
+    
+break;
             case 1:
                 // Yacht(int yachtID, String name, String type, double length, int crewNumber, double enginePower, int sailsNumber)
                 yacht = new Yacht(data[1], data[2], data[3], Double.valueOf(data[4]), Integer.parseInt(data[5]), Double.valueOf(data[6]), Integer.parseInt(data[7]));
+                                System.out.println("FACTORY 1: "+yacht);
+
                 break;
+                
         }
         return yacht;
 

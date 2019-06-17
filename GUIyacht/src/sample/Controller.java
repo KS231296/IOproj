@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,33 +22,11 @@ public class Controller {
 
     private ObservableList<String> items = FXCollections.observableArrayList();
 
-    protected int showItems(String[] data, ActionEvent event) {
+    protected void showItems(String[] data, ActionEvent event) {
 
-        Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Search or show all?", new ButtonType("SEARCH"), new ButtonType("ALL"), ButtonType.CANCEL).showAndWait();
-        int what = -1;
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.CANCEL) {
-                return 0;
-            } else if (result.get().getText().equals("SEARCH")) {
-// Szukanie dodać
-
-                what = 1;
-
-            } else if (result.get().getText().equals("ALL")) {
-
+       
                 updateList(data);
-
-                what = 2;
-
-            }
-
-        }
-        if (((Node) (event.getSource())).getScene().getWindow().getHeight() < 700) {
-            ((Node) (event.getSource())).getScene().getWindow().setHeight(700);
-            ((Node) (event.getSource())).getScene().getWindow().setY(((Node) (event.getSource())).getScene().getWindow().getY() - 100);
-
-        }
-        return what;
+       
     }
 
     
@@ -57,7 +34,6 @@ public class Controller {
     protected void updateList(String[] data) {
         items.clear();
         items.addAll(data);
-
         listItems.setItems(items);
 
         System.out.println(listItems.getItems());
