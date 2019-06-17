@@ -20,3 +20,5 @@ GUIyacht/dist/lib/backend.jar
 /YachtRentEnterprise/dist/
 /YachtRentDB/nbproject/private/
 /YachtRentDB-ejb/nbproject/private/
+/YachtRentDB-ejb/build/
+/YachtRentDB-ejb/dist/
