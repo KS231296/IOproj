@@ -25,13 +25,15 @@ public class Yacht implements Serializable {
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Long id
+    ) {
         this.id = id;
     }
     
     @OneToMany(mappedBy = "yacht", cascade = ALL)
     List<Yacht> yachts;
     public List<Yacht> getYachts() {
+       
         return yachts;
     }
     public void setYachts(List<Yacht> yachts) {
@@ -164,7 +166,7 @@ public class Yacht implements Serializable {
     }
 
     //metoda porównująca jachty
-    @Override
+  @Override
     public boolean equals(Object object) {
        
         
@@ -187,6 +189,7 @@ public class Yacht implements Serializable {
         return true;
     }
 
+
     public boolean isFree(LocalDate data1, LocalDate data2) {
         for (Reservation res : this.reservations) {
             if (!res.isFree(data1, data2)) {
@@ -195,5 +198,48 @@ public class Yacht implements Serializable {
         }
         return true;
     }
+    
+    public boolean compare(Yacht comparedYacht) {
+        if (this.crewNumber != 0) {
+            if (this.crewNumber != comparedYacht.crewNumber) {
+                return false;
+            }
+        }
+        if (this.enginePower != 0) {
+            if (this.enginePower != comparedYacht.enginePower) {
+                return false;
+            }
+        }
+        if (this.length != 0) {
+            if (this.length != comparedYacht.length) {
+                return false;
+            }
+        }
+        if (this.type != null ) {
+            if (!this.type.equals("") && !this.type.equals(comparedYacht.type)) {
+                return false;
+            }
+        }
+        if (this.name != null ) {
+            if (!this.name.equals("") && !this.name.equals(comparedYacht.name)) {
+                return false;
+            }
+        }
+        if (this.sailsNumber != 0) {
+            if (this.sailsNumber != comparedYacht.sailsNumber) {
+                return false;
+            }
+        }
+        if (this.yachtID != null) {
+            if (!this.yachtID.equals("") &&!this.yachtID.equals(comparedYacht.yachtID)) {
+                return false;
+            }
+        }
+        return true;
+}
+    
+    
+    
+    
 
 }

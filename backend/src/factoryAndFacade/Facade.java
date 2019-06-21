@@ -47,6 +47,30 @@ public class Facade {
         return data;
     }
     
+        public String[] getClientReservationsData(String clientID){
+        List<Reservation> res = new ArrayList<>();
+        for (Client client : clients) {
+            if (client.getClientID().equals(clientID)) {
+                res.addAll(client.getReservations());
+                System.out.println(client.getId());
+            }
+        }
+
+            
+        String[] data = new String[res.size()];
+        for(int i = 0; i < res.size();i++){
+            data[i] = res.get(i).toString();
+        }
+        return data;
+    }
+
+    public void setYachts(ArrayList<Yacht> yachts) {
+        this.yachts = yachts;
+    }
+        
+
+  
+    
     public String[] getReservationsData(){
         List<Reservation> res = new ArrayList<>();
         for(int i = 0; i < clients.size(); i++){
@@ -61,12 +85,10 @@ public class Facade {
         return data;
     }
 
-    public void setYachts(ArrayList<Yacht> yachts) {
-        this.yachts = yachts;
-    }
+   
 
     //metoda dodająca rezerwacje
-    public String addReservation(String[] dataOfClient, String[] datayacht, String datesofReservation[]) {
+       public String addReservation(String[] dataOfClient, String[] datayacht, String datesofReservation[]) {
         Factory factory = new Factory();
         Yacht yacht = factory.createYacht(datayacht);
         yacht = insideYacht(yacht);
@@ -74,17 +96,17 @@ public class Facade {
             return "Brak jachtu";
         }
         Client client = factory.createClient(dataOfClient);
+        client = insideClient(client);
         if (client == null) {
             return "Brak klienta";
         }
-        if ((yacht.isFree(LocalDate.parse(datesofReservation[0]), LocalDate.parse(datesofReservation[1])))) {
+        if ((yacht.isFree(LocalDate.parse(datesofReservation[2]), LocalDate.parse(datesofReservation[3])))) {
             client.addReservation(datesofReservation, yacht);
             return "Zarezerwowano jacht";
         }
         return "Brak wolnego jachtu";
 
     }
-
     public String addClient(String data[]) {
         Factory factory = new Factory();
         Client client = factory.createClient(data);
@@ -160,12 +182,12 @@ public class Facade {
 
     }
 
-    public String[] searchYachts(String[] data) {
+     public String[] searchYachts(String[] data) {
         Factory factory = new Factory();
         Yacht yacht = factory.createYacht(data);
         ArrayList<String> ff = new ArrayList();
         for (int i = 0; i < yachts.size(); i++) {
-            if (yacht.equals(yachts.get(i))) {
+            if (yacht.compare(yachts.get(i))) {
                 ff.add(yachts.get(i).toString());
             }
         }
@@ -188,22 +210,23 @@ public class Facade {
     }
 
     //metoda modyfikująca jacht
-    public void modifyYacht(String modifiedParameter, String[] data) {
-        String yachtID = data[1];
+    public boolean modifyYacht(String modifiedParameter, String[] data) {
+        String yachtID = data[0];
+        boolean changed = false;
         for (int i = 0; i < yachts.size(); i++) {
             if (yachts.get(i).getYachtID().equals(yachtID)) {
-                boolean changed = true;
+                 changed = true;
                 switch (modifiedParameter) {
                     case "name":
-                        yachts.get(i).setName(data[2]);
+                        yachts.get(i).setName(data[1]);
 
                         break;
                     case "enginePower":
-                        yachts.get(i).setEnginePower(Double.valueOf(data[6]));
+                        yachts.get(i).setEnginePower(Double.valueOf(data[1]));
 
                         break;
                     case "sailsNumber":
-                        yachts.get(i).setSailsNumber(Integer.parseInt(data[7]));
+                        yachts.get(i).setSailsNumber(Integer.parseInt(data[1]));
                         break;
                     default:
                         changed = false;
@@ -216,6 +239,7 @@ public class Facade {
                 System.out.println("Jacht o podanym ID nie istnieje");
             }
         }
+        return changed;
     }
 
     private Client insideClient(Client client) {

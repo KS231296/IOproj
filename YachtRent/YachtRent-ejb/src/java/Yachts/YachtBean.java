@@ -1,13 +1,9 @@
-
 package Yachts;
 
 import factoryAndFacade.Facade;
 import javax.ejb.Stateless;
 
-/**
- *
- * @author uaxau
- */
+
 @Stateless
 public class YachtBean implements YachtsBeanRemote {
 

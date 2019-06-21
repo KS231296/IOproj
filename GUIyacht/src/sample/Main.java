@@ -16,7 +16,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
         primaryStage.setTitle("MAZUROINATOR");
-        primaryStage.setScene(new Scene(root, 753, 691));
+        primaryStage.setScene(new Scene(root, 600, 650));
         primaryStage.show();
     }
 
